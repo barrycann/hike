@@ -1,0 +1,34 @@
+{
+  "name": "hike",
+  "version": "1.0.0",
+  "description": "A full-featured hiking app for the Wasatch Front",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barrycann/hike.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barrycann/hike/issues"
+  },
+  "homepage": "https://github.com/barrycann/hike#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-cachebust": "0.0.6",
+    "gulp-concat": "^2.6.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-print": "^2.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "massive": "^2.6.0"
+  }
+}

@@ -1,0 +1,104 @@
+@import "reset.scss";
+
+body {
+   font-family: sans-serif;
+}
+
+h1 {
+   font-size: 36px;
+}
+
+h2 {
+   font-size: 28px;
+}
+
+h3 {
+   font-size: 24px;
+}
+
+h4 {
+   font-size: 18px;
+}
+
+p {
+   font-size: 12px;
+}
+
+input, textarea {
+   line-height: 16px;
+   font-size: 14px;
+   padding: 5px;
+   margin: 5px;
+}
+
+.nav-bar {
+   position: relative;
+   top: 0px;
+   width: 100%;
+   height: 50px;
+   background-color: dimgray;
+}
+
+.main-nav {
+   position: absolute;
+   right: 30px;
+   ul {
+      list-style: none;
+      li {
+         display: inline-block;
+         height: 50px;
+         line-height: 50px;
+         padding: 0 10px;
+         color: white;
+         p {
+            margin-top: 2px;
+         }
+         img {
+            height: 30px;
+            vertical-align: middle;
+         }
+      }
+   }
+}
+
+.main-container {
+   margin: 0 30px;
+   padding: 10px;
+   height: 100vh;
+   background-image: url('../img/salt-lake-back.jpg');
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.submission-field {
+   width: 300px;
+   height: 100px;
+   border: 1px solid darkslategrey;
+}
+
+.form-section {
+   border-radius: 3px;
+   background: rgba(255, 255, 255, 0.5);
+   margin: 10px;
+   padding: 10px;
+   div{
+      display: inline-block;
+   }
+   .pre-text {
+      text-align: left;
+      width: 60px;
+   }
+}
+
+.hike-card {
+   margin: 5px;
+   background: rgba(255, 255, 255, 0.5);
+   .key-image {
+      width: 100px;
+   }
+   h3 {
+      font-family: 'Quicksand', sans-serif;
+
+   }
+}

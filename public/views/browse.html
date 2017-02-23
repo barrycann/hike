@@ -1,0 +1,15 @@
+<div class="main-container">
+   <h1>Browse All Hikes</h1>
+
+   <button ng-click="getHikes()">Get Hikes</button>
+
+   <div class="hike-card" ng-repeat="hike in hikeData">
+      <h3>Name: {{hike.name}}</h3>
+      <p>Nickname: {{hike.nickname}}</p>
+      <p>Summary: {{hike.summary}}</p>
+      <p>Miles: {{hike.mileslong}}</p>
+      <p>Elevation: {{hike.elevationgain}}</p>
+      <p>Difficulty: {{hike.difficulty}}</p>
+      <p>Rating: {{hike.rating}}</p>
+   </div>
+</div>
