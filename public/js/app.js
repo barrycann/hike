@@ -3,20 +3,16 @@ angular.module('hikeApp', ['ui.router'])
    
    $stateProvider
       .state('home', {
-         url: '/',
+         url: '/home',
          templateUrl: './views/home.html'
       })
-      .state('hikenow', {
-         url: '/hikenow',
-         templateUrl: './views/hikenow.html'
+      .state('explore', {
+         url: '/explore',
+         templateUrl: './views/explore.html'
       })
-      .state('browse', {
-         url: '/browse',
-         templateUrl: './views/browse.html'
-      })
-      .state('educate', {
-         url: '/educate',
-         templateUrl: './views/educate.html'
+      .state('prepare', {
+         url: '/prepare',
+         templateUrl: './views/prepare.html'
       })
       .state('shop', {
          url: '/shop',
@@ -26,11 +22,20 @@ angular.module('hikeApp', ['ui.router'])
          url: '/profile',
          templateUrl: './views/profile.html'
       })
+      .state('login', {
+         url: '/login',
+         templateUrl: '/login.html'
+      })
       .state('hikeAdmin', {
          url: '/hikeAdmin',
          templateUrl: './views/hikeAdmin.html'
       })
+      .state('hikeDetails', {
+         url: '/hikeDetails/:hikeName',
+         templateUrl: './views/hikeDetails.html',
+         controller: 'hikeDetailsCtrl'
+      })
 
       $urlRouterProvider
-         .otherwise('/');
+         .otherwise('/home');
 });

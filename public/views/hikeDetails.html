@@ -1,0 +1,47 @@
+<div class="main-container">
+   <div class="hike-billboard">
+      <div class="hike-photo-box">
+         <div class="hike-photos">
+
+         </div>
+         <div class="hike-title trnspt-grad">
+            <h3>{{hikeDetail.name}}</h3>
+            <h5>&quot{{hikeDetail.nickname}}&quot</h5>
+         </div>
+      </div>
+      <div class="hike-sideinfo">
+         <div class="info-block">
+            <h1>{{hikeDetail.difficulty}}</h1>
+         </div>
+         <div class="info-block">
+            <h1>{{hikeDetail.mileslong}}</h1>
+            <p>HIKE LENGTH (MI)</p>
+         </div>
+         <div class="info-block">
+            <h1>{{hikeDetail.elevationgain}}</h1>
+            <p>ELEVATION GAIN (FT)</p>
+         </div>
+         <div class="info-block">
+            <p>USER RATING</p>
+            <h1>{{hikeDetail.rating}}</h1>
+         </div>
+         <div class="info-block">
+            <p>MAP GOES HERE</p>
+         </div>
+      </div>
+   </div>
+   <div class="hike-lower-info">
+      <div class="weather">
+         <h4>Weather</h4>
+         <weather-dir></weather-dir>
+      </div>
+      <div class="summary">
+         <h4>Summary</h4>
+         <p>{{hikeDetail.summary}}</p>
+      </div>
+   </div>
+   <div>
+      <h1>Reviews</h1>
+      
+   </div>
+</div>

@@ -1,13 +1,7 @@
 angular.module('hikeApp')
 .directive('navDir', function(){
    return {
-      restrict: 'AE',
-      scope: {
-         //brand: '='
-      },
+      restrict: 'E',
       templateUrl: './views/navTemplate.html'
-      //controller: function($scope, $elem, $attrs){
-
-      //}
    }
 })

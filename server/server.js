@@ -19,6 +19,10 @@ app.get('/api/hikes', serverCtrl.getAllHikes);
 app.get('/api/hikes/:name', serverCtrl.getOneHike);
 app.delete('/api/hikes/:name', serverCtrl.deleteHike);
 
+app.post('/api/users', serverCtrl.createUser);
+app.get('/api/users', serverCtrl.getAllUsers);
+app.get('/api/users/:username', serverCtrl.getOneUser);
+app.delete('/api/users/:username', serverCtrl.deleteUser);
 
 app.listen(port, () => {
    console.log(`Listening on port ${port}...`);

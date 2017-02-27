@@ -83,22 +83,35 @@ table {
   border-spacing: 0; }
 
 body {
-  font-family: sans-serif; }
+  font-family: 'Droid Serif', sans-serif; }
 
 h1 {
-  font-size: 36px; }
+  font-size: 40px;
+  font-family: 'Oswald', sans-serif; }
 
 h2 {
   font-size: 28px; }
 
 h3 {
-  font-size: 24px; }
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 700;
+  color: ghostwhite; }
 
 h4 {
-  font-size: 18px; }
+  font-size: 16px;
+  font-weight: 700;
+  color: #eee; }
+
+h5 {
+  font-size: 14px;
+  font-style: italic;
+  padding-top: 5px;
+  color: #ccc; }
 
 p {
-  font-size: 12px; }
+  font-size: 14px; }
 
 input, textarea {
   line-height: 16px;
@@ -106,12 +119,32 @@ input, textarea {
   padding: 5px;
   margin: 5px; }
 
+.box {
+  margin: 10px;
+  border-radius: 2px; }
+
+.centered {
+  text-align: center; }
+
+.billboard {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  text-align: center; }
+  .billboard .site-title {
+    font-family: sans-serif;
+    font-size: 60px;
+    color: white; }
+    .billboard .site-title .little {
+      font-size: 30px;
+      vertical-align: middle; }
+
 .nav-bar {
   position: relative;
   top: 0px;
   width: 100%;
-  height: 50px;
-  background-color: dimgray; }
+  height: 80px;
+  background-color: #3F3637; }
 
 .main-nav {
   position: absolute;
@@ -120,8 +153,8 @@ input, textarea {
     list-style: none; }
     .main-nav ul li {
       display: inline-block;
-      height: 50px;
-      line-height: 50px;
+      height: 80px;
+      line-height: 80px;
       padding: 0 10px;
       color: white; }
       .main-nav ul li p {
@@ -131,13 +164,20 @@ input, textarea {
         vertical-align: middle; }
 
 .main-container {
-  margin: 0 30px;
-  padding: 10px;
+  padding: 30px 50px;
   height: 100vh;
   background-image: url("../img/salt-lake-back.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover; }
+
+.login-container {
+  margin-top: 20px;
+  width: 300px; }
+  .login-container .top {
+    background: rgba(255, 255, 255, 0.3); }
+  .login-container .bottom {
+    background: rgba(255, 255, 255, 0.5); }
 
 .submission-field {
   width: 300px;
@@ -155,12 +195,125 @@ input, textarea {
     text-align: left;
     width: 60px; }
 
-.hike-card {
-  margin: 5px;
+.hike-filter {
   background: rgba(255, 255, 255, 0.5); }
+
+.hike-card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5); }
+  .hike-card .image-area {
+    flex: 1 1 auto; }
+  .hike-card .primary-info {
+    flex: 1 1 30%; }
+  .hike-card .descript {
+    flex: 1 1 50%; }
   .hike-card .key-image {
-    width: 100px; }
-  .hike-card h3 {
-    font-family: 'Quicksand', sans-serif; }
+    width: 225px;
+    height: 150px; }
+  .hike-card .pad-15 {
+    padding: 17px 0 14px 17px; }
+
+.top-line {
+  padding-top: 10px; }
+
+.lower-line {
+  text-align: center;
+  padding-top: 5px; }
+  .lower-line .info-block {
+    margin-right: 10px;
+    border: 1px solid #776;
+    padding: 7px 5px 3px 5px; }
+  .lower-line h1 {
+    align-content: center;
+    color: #ccc; }
+  .lower-line p {
+    padding-top: 2px;
+    color: #aaa; }
+
+.fl-row {
+  display: flex;
+  flex-flow: row nowrap; }
+
+.between {
+  justify-content: space-between; }
+
+.around {
+  justify-content: space-around; }
+
+.fl-start {
+  align-items: flex-start; }
+
+.fl-r-b-s {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+.fl-r-a {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around; }
+
+.fl-r-s {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start; }
+
+.hike-billboard {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  width: 100%;
+  height: 600px; }
+  .hike-billboard .hike-photo-box {
+    flex: 0 0 85%;
+    height: 600px;
+    background-color: #599; }
+    .hike-billboard .hike-photo-box .hike-title {
+      margin: 10px 0 0 10px; }
+  .hike-billboard .hike-sideinfo {
+    flex: 0 0 15%;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.5); }
+    .hike-billboard .hike-sideinfo .info-block {
+      margin: 10px;
+      text-align: center;
+      border: 1px solid #776;
+      padding: 7px 5px 3px 5px; }
+      .hike-billboard .hike-sideinfo .info-block h1 {
+        color: #ccc; }
+      .hike-billboard .hike-sideinfo .info-block p {
+        color: #aaa; }
+
+.hike-lower-info {
+  margin-top: 30px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px; }
+  .hike-lower-info .weather {
+    flex: 0 0 300px;
+    height: 300px;
+    background: #175; }
+  .hike-lower-info .summary {
+    flex: 1 1 auto;
+    padding: 5px 0 0 30px;
+    height: 300px;
+    background: #665; }
+    .hike-lower-info .summary p {
+      padding-top: 10px;
+      text-align: justify; }
+
+.trnspt-grad {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+  /* IE6-9 */ }
 
 /*# sourceMappingURL=maps/styles.css.map */

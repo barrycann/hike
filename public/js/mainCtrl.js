@@ -7,6 +7,7 @@ angular.module('hikeApp')
          $scope.hikeData = data;
       });
    }
+   $scope.getHikes();
 
    $scope.createHike = function(hike){
       console.log(hike);
@@ -22,8 +23,6 @@ angular.module('hikeApp')
       });
    }
 
-   $scope.clearSearch = function(){
-      $scope.searchAll = null;      
-   }
+   
 
 });

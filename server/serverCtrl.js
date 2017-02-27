@@ -51,5 +51,65 @@ module.exports = {
          }
          res.send(200).send(results);
       })
+   },
+   // editHike: function(req, res){
+   //    var editArray = [req.params.hikeid];
+
+   //    for(var i in req.body){
+   //       editArray.push()
+   //    }
+
+   //    db.edit_hike(editArray, function(err, results){
+   //       if(err){
+   //          console.error(err);
+   //          return res.send(err);
+   //       }
+   //    });
+   // },
+   createUser: function(req, res){
+      db.create_user([
+         req.body.username,
+         req.body.userpassword,
+         req.body.isadmin,
+         req.body.userimage,
+         req.body.userbio
+      ], function(err, results){
+         if(err){
+            console.error(err);
+            return res.send(err);
+         }
+         res.status(200).send(results);
+      })
+   },
+   getAllUsers: function(req, res){
+      db.get_all_users([], function(err, results){
+         if(err){
+            console.error(err);
+            return res.send(err);
+         }
+         res.status(200).send(results);
+      })
+   },
+   getOneUser: function(req, res){
+      db.get_one_user([
+         req.params.username
+      ], function(err, results){
+         if(err){
+            console.error(err);
+            return res.send(err);
+         }
+         res.status(200).send(results);
+      })
+   },
+   deleteUser: function(req, res){
+      db.delete_user([
+         req.params.username
+      ], function(err, results){
+         if(err){
+            console.error(err);
+            return res.send(err);
+         }
+         res.status(200).send(results);
+      })
    }
 }

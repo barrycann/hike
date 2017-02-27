@@ -1,11 +1,19 @@
 @import "reset.scss";
 
+$easy-color: #499;
+$medium-diff: #994;
+$hard-diff: #949;
+
+$hike-stat: #ccc;
+$hike-stat-desc: #aaa;
+
 body {
-   font-family: sans-serif;
+   font-family: 'Droid Serif', sans-serif;
 }
 
 h1 {
-   font-size: 36px;
+   font-size: 40px;
+   font-family: 'Oswald', sans-serif;
 }
 
 h2 {
@@ -13,15 +21,28 @@ h2 {
 }
 
 h3 {
-   font-size: 24px;
+   font-family: 'Oswald', sans-serif;
+   text-transform: uppercase;
+   font-size: 32px;
+   font-weight: 700;
+   color: ghostwhite
 }
 
 h4 {
-   font-size: 18px;
+   font-size: 16px;
+   font-weight: 700;
+   color: #eee;
+}
+
+h5 {
+   font-size: 14px;
+   font-style: italic;
+   padding-top: 5px;
+   color: #ccc;
 }
 
 p {
-   font-size: 12px;
+   font-size: 14px;
 }
 
 input, textarea {
@@ -31,12 +52,37 @@ input, textarea {
    margin: 5px;
 }
 
+.box{
+   margin: 10px;
+   border-radius: 2px;
+}
+
+.centered{
+   text-align: center;
+}
+
+.billboard {
+   position: relative;
+   width: 100%;
+   height: 650px;
+   text-align: center;
+   .site-title {
+      font-family: sans-serif;
+      font-size: 60px;
+      color: white;
+      .little {
+         font-size: 30px;
+         vertical-align: middle;
+      }
+   }
+}
+
 .nav-bar {
    position: relative;
    top: 0px;
    width: 100%;
-   height: 50px;
-   background-color: dimgray;
+   height: 80px;
+   background-color: #3F3637;
 }
 
 .main-nav {
@@ -46,8 +92,8 @@ input, textarea {
       list-style: none;
       li {
          display: inline-block;
-         height: 50px;
-         line-height: 50px;
+         height: 80px;
+         line-height: 80px;
          padding: 0 10px;
          color: white;
          p {
@@ -62,13 +108,23 @@ input, textarea {
 }
 
 .main-container {
-   margin: 0 30px;
-   padding: 10px;
+   padding: 30px 50px;
    height: 100vh;
    background-image: url('../img/salt-lake-back.jpg');
    background-attachment: fixed;
    background-repeat: no-repeat;
    background-size: cover;
+}
+
+.login-container {
+   margin-top: 20px;
+   width: 300px;
+   .top {
+      background: rgba(255, 255, 255, 0.3);
+   }
+   .bottom {
+      background: rgba(255, 255, 255, 0.5);
+   }
 }
 
 .submission-field {
@@ -91,14 +147,160 @@ input, textarea {
    }
 }
 
-.hike-card {
-   margin: 5px;
+.hike-filter {
    background: rgba(255, 255, 255, 0.5);
-   .key-image {
-      width: 100px;
-   }
-   h3 {
-      font-family: 'Quicksand', sans-serif;
+}
 
+.hike-card {
+   position: relative;
+   background: rgba(0,0,0, 0.5);
+
+   .image-area {
+      flex: 1 1 auto;
    }
+
+   .primary-info {
+      flex: 1 1 30%;
+   }
+
+   .descript {
+      flex: 1 1 50%;
+   }
+
+   .key-image {
+      width: 225px;
+      height: 150px;
+   }
+   .pad-15 {
+      padding: 17px 0 14px 17px;
+   }
+}
+
+.top-line {
+   padding-top: 10px;
+}
+
+.lower-line {
+   text-align: center;
+   .info-block {
+      margin-right: 10px;
+      border: 1px solid #776;
+      padding: 7px 5px 3px 5px;
+   }
+   h1 {
+      align-content: center;
+      color: $hike-stat;
+   }
+   p{
+      padding-top: 2px;
+      color: $hike-stat-desc;
+   }
+   padding-top: 5px;
+}
+
+.fl-row {
+   display: flex;
+   flex-flow: row nowrap;
+}
+
+.between {
+   justify-content: space-between;
+}
+
+.around {
+   justify-content: space-around;
+}
+
+.fl-start {
+   align-items: flex-start;
+}
+
+.fl-r-b-s {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+
+.fl-r-a {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-around;
+}
+
+.fl-r-s {
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: flex-start;
+}
+
+.hike-billboard {
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: flex-start;
+   width: 100%;
+   height: 600px;
+
+   .hike-photo-box {
+      flex: 0 0 85%;
+      height: 600px;
+      background-color: #599;
+      .hike-title {
+         margin: 10px 0 0 10px;
+      }
+      .hike-photos {
+
+      }
+   }
+   .hike-sideinfo {
+      flex: 0 0 15%;
+      height: 600px;
+      background: rgba(0,0,0, 0.5);
+      .info-block {
+         margin: 10px;
+         text-align: center;
+         border: 1px solid #776;
+         padding: 7px 5px 3px 5px;
+         h1 {
+            color: $hike-stat;
+         }
+         p {
+            color: $hike-stat-desc;
+         }
+      }  
+   }
+}
+
+.hike-lower-info {
+   margin-top: 30px;
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   width: 100%;
+   height: 300px;
+   
+   .weather {
+      flex: 0 0 300px;
+      height: 300px;
+      background: #175;
+   }
+
+   .summary {
+      flex: 1 1 auto;
+      padding: 5px 0 0 30px;
+      height: 300px;
+      background: #665;
+      p {
+         padding-top: 10px;
+         text-align: justify;
+      }
+   }
+}
+
+.trnspt-grad {
+   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+   background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }

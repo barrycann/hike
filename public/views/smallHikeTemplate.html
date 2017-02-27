@@ -1,0 +1,30 @@
+<div class="hike-card fl-r-b-s box" ng-repeat="hike in hikeData | filter:searchName" ui-sref="hikeDetails({hikeName:hike.name})">
+   <div class="image-area pad-15">
+      <img class="key-image" src="./img/mount-olympus-1.jpg"/>
+   </div>
+   <div class="primary-info pad-15">
+      <h3>{{hike.name}}</h3>
+      <h5>&quot{{hike.nickname}}&quot</h5>
+      <div class="top-line fl-r-s">
+         <div class="diff">{{hike.difficulty}}</div>
+         <div class="rating">{{hike.rating}}</div>
+      </div>
+      <div class="lower-line fl-row fl-start">
+         <div class="info-block">
+            <h1>{{hike.mileslong}}</h1>
+            <p>MILES</p>
+         </div>
+         <div class="info-block">
+            <h1>{{hike.elevationgain}}</h1>
+            <p>FT. CLIMBED</p>
+         </div>
+         <div>
+
+         </div>
+      </div>
+   </div>
+   <div class="descript pad-15">
+      <h4>Summary</h4>
+      <p>{{hike.summary}}</p>
+   </div>
+</div>
