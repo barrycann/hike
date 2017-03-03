@@ -1,5 +1,16 @@
 <div class="main-container">
-   <h1>Profile</h1>
+   <div class="profile-box">
+      <h3>Welcome, {{user.username}}</h3>
+      <p>Current Picture:</p>
+      <img ng-src="{{user.userimage}}"/><br>
+      <input type="file" name="pic" accept="image/*" ng-model="user.userimage">
+      <input type="submit">
+   </div>
+   
+   <input type="text" ng-model="user.username">
+   <input type="text" ng-model="user.useremail">
+   <textarea rows="4" cols="40" ng-model="user.userbio"></textarea>
+   <button type="button" ng-click="updateUser(user)">UPDATE</button>
+
    <button ui-sref="hikeAdmin">Create a Hike</button>
-   <button ui-sref="login">LogIn</button>
 </div>

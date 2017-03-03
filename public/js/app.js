@@ -1,14 +1,18 @@
-angular.module('hikeApp', ['ui.router'])
+angular.module('hikeApp', ['ui.router', 'ngAnimate'])
 .config(function($urlRouterProvider, $stateProvider){
    
+   $urlRouterProvider.otherwise('/');
+
    $stateProvider
       .state('home', {
-         url: '/home',
-         templateUrl: './views/home.html'
+         url: '/',
+         templateUrl: './views/home.html',
+         controller: 'homeCtrl'
       })
       .state('explore', {
          url: '/explore',
-         templateUrl: './views/explore.html'
+         templateUrl: './views/explore.html',
+         controller: 'exploreCtrl'
       })
       .state('prepare', {
          url: '/prepare',
@@ -20,11 +24,23 @@ angular.module('hikeApp', ['ui.router'])
       })
       .state('profile', {
          url: '/profile',
-         templateUrl: './views/profile.html'
-      })
-      .state('login', {
-         url: '/login',
-         templateUrl: '/login.html'
+         templateUrl: './views/profile.html',
+         controller: 'profileCtrl',
+         resolve: {
+            user: function(authService, $state){
+               return authService.getCurrentUser()
+               .then(function(response){
+                  console.log('response: data', response.data);
+                  if(!response.data){
+                     $state.go('home');
+                  }
+                  return response.data;
+               })
+               .catch(function(err){
+                  $state.go('home');
+               });
+            }
+         }
       })
       .state('hikeAdmin', {
          url: '/hikeAdmin',
@@ -35,7 +51,4 @@ angular.module('hikeApp', ['ui.router'])
          templateUrl: './views/hikeDetails.html',
          controller: 'hikeDetailsCtrl'
       })
-
-      $urlRouterProvider
-         .otherwise('/home');
 });

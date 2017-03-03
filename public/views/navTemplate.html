@@ -1,12 +1,15 @@
 <div class="nav-bar">
+   <div class="left-nav">
+      <img ui-sref="home" src="./../img/logo.png"/>
+   </div>
    <nav class="main-nav">
       <ul>
-         <li ui-sref="home"><p>INSTA-HIKE</p></li>
-         <li ui-sref="explore"><p>EXPLORE</p></li>
-         <li ui-sref="prepare"><p>PREPARE</p></li>
-         <li ui-sref="shop"><p>SHOP</p></li>
+         <li ui-sref="explore"><h5>Explore</h5></li>
+         <li ui-sref="prepare"><h5>Prepare</h5></li>
+         <li ui-sref="shop"><h5>Shop</h5></li>
+         <li><h5><a href="/auth">Login</a></h5></li>
+         <li ng-click="logout()"><h5>Logout</h5></li>
          <li ui-sref="profile"><img src="../img/user-icon-100.png"></li>
       </ul>
    </nav>
-
 </div>

@@ -1,5 +1,25 @@
 <div>
-   <img src="http://netdna.webdesignerdepot.com/uploads/2012/10/20_cloud_comment.jpg"/>
+   <div class="weather-today">
+      <img src="{{weatherInfo.todaylogo}}"/>
+      <p><span class="high-temp">{{weatherInfo.todayhigh}}</span> / <span class="low-temp">{{weatherInfo.todaylow}}</span></p>
+   </div>
+   <div class="weather-forecast">
+      <div class="forecast-day">
+         <p class="day-name">{{weatherInfo.day1name}}</p>
+         <img src="{{weatherInfo.day1logo}}"/>
+         <p><span class="high-temp">{{weatherInfo.day1high}}</span> / <span class="low-temp">{{weatherInfo.day1low}}</span></p>
+      </div>
+      <div class="forecast-day">
+         <p class="day-name">{{weatherInfo.day2name}}</p>
+         <img src="{{weatherInfo.day2logo}}"/>
+         <p><span class="high-temp">{{weatherInfo.day2high}}</span> / <span class="low-temp">{{weatherInfo.day2low}}</span></p>
+      </div>
+      <div class="forecast-day">
+         <p class="day-name">{{weatherInfo.day3name}}</p>
+         <img src="{{weatherInfo.day3logo}}"/>
+         <p><span class="high-temp">{{weatherInfo.day3high}}</span> / <span class="low-temp">{{weatherInfo.day3low}}</span></p>
+      </div>
+   </div>
    <p></p>
    <p></p>
 </div>

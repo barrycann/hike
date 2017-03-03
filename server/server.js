@@ -1,19 +1,68 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var massive = require('massive');
-var config = require('../config');
+//=== Require Dependencies ==================================
+const express = require('express'),
+      bodyParser = require('body-parser'),
+      session = require('express-session'),
+      massive = require('massive'),
+      config = require('../config');
 
 const dbPassword = config.dbPassword;
 const port = config.port;
 const connectionString = `postgres://postgres:${dbPassword}@localhost/hikehike`;
-var massiveInstance = massive.connectSync({connectionString:connectionString});
 
-var app = module.exports = express();
+
+//=== Initialize App ========================================
+const app = module.exports = express();
+
 app.use(express.static(__dirname + './../public'));
 app.use(bodyParser.json());
-app.set('db', massiveInstance);
-var serverCtrl = require('./serverCtrl.js');
 
+app.use(session({
+  secret: config.secret,
+  resave: false,
+  saveUninitialized: false
+}));
+
+
+//=== Database ==============================================
+const massiveInstance = massive.connectSync({connectionString:connectionString});
+app.set('db', massiveInstance);
+const db = app.get('db');
+
+
+//=== Session and Passport ==================================
+const passport = require('./services/passport.js');
+app.use(passport.initialize());
+app.use(passport.session());
+
+//=== Passport Endpoints ====================================
+app.get('/auth', passport.authenticate('auth0'));
+app.get('/auth/callback', passport.authenticate('auth0', 
+  {
+    successRedirect: '/#!/profile',
+    failureRedirect: '/#!/'
+  }
+));
+
+app.get('/api/logout', function(req, res, next) {
+  req.logout();
+  return res.status(200).send('logged out');
+});
+
+var isAuthed = function(req, res, next){
+  if(!req.isAuthenticated()){
+     return res.status(401).send("Not authenticated");
+  }
+  console.log("Authenticated");
+  return next();
+}
+
+//=== Controllers ===========================================
+const serverCtrl = require('./controllers/serverCtrl.js'),
+      reviewCtrl = require('./controllers/reviewCtrl.js'),
+      userCtrl = require('./controllers/userCtrl.js');
+
+
+//=== Hike Endpoints =============================================
 app.post('/api/hikes', serverCtrl.createHike);
 app.get('/api/hikes', serverCtrl.getAllHikes);
 app.get('/api/hikes/:name', serverCtrl.getOneHike);
@@ -24,6 +73,16 @@ app.get('/api/users', serverCtrl.getAllUsers);
 app.get('/api/users/:username', serverCtrl.getOneUser);
 app.delete('/api/users/:username', serverCtrl.deleteUser);
 
+//=== Review Endpoints ======================================
+app.post('/api/reviews', reviewCtrl.createReview);
+app.get('/api/reviews/:hikeid', reviewCtrl.getReviewsByHike);
+
+//=== User Endpoints ========================================
+app.get('/api/me', userCtrl.me);
+app.put('/api/user/current', isAuthed, userCtrl.updateCurrent);
+
+
+//=== Listen ================================================
 app.listen(port, () => {
    console.log(`Listening on port ${port}...`);
 })

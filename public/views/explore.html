@@ -1,9 +1,9 @@
 <div class="main-container">
-   <h1>Explore All Hikes</h1>
+   <h2>Explore All Hikes</h2>
    <div class="hike-filter box">
-      <label class="centered">Search by Name: <input placeholder="Hike Name" ng-model="searchName"/></label>
+      <label class="centered">Search by Name: <input placeholder="Hike Name" ng-model="searchName.name"/></label>
       <hr class="light-line">
-      <h4>Filter by:</h4>
+      <h4>Select Your Filters:</h4>
       <div class="fl-r-a">
          <div>
             <h2>Difficulty</h2>
@@ -14,17 +14,14 @@
          <div>
             <h2>Hike Length</h2>
             <h4>0-2 Miles: <input type="checkbox"/></h4>
-            <h4>2-4 Miles: <input type="checkbox"/></h4>
-            <h4>4+  Miles: <input type="checkbox"/></h4>
+            <h4>2-5 Miles: <input type="checkbox"/></h4>
+            <h4>5+  Miles: <input type="checkbox"/></h4>
          </div>
          <div>
-            <h2>Elevation Gain</h2>
-            <h4>< 1000 ft: <input type="checkbox"/></h4>
-            <h4>1000 - 3000 ft: <input type="checkbox"/></h4>
-            <h4>> 3000 ft: <input type="checkbox"/></h4>
-         </div>
-         <div>
-
+            <h2>Features</h2>
+            <h4>Peak <input type="checkbox"/></h4>
+            <h4>Waterfall<input type="checkbox"/></h4>
+            <h4>Lake<input type="checkbox"/></h4>
          </div>
       </div>
    </div>

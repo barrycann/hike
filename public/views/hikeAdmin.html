@@ -1,26 +1,28 @@
 <div class="main-container">
-   <h2>You are the captain now.</h2>
-
    <div>
       <h1>Create a Hike:</h1>
       <form>
          <div class="form-section">
-            <p>PRIMARY INFO</p>
+            <p class="hdr-txt">PRIMARY INFO</p>
             <div class="pre-text"><p>Title:</p></div><div><input ng-model="hike.hikeName" placeholder="Hike Title"/></div><br>
             <div class="pre-text"><p>Nickname:</p></div><div><input ng-model="hike.nickName" placeholder="Hike Nickname"/></div><br>
             <div class="pre-text"><p>Summary:</p></div><div><textarea rows="4" cols="60" ng-model="hike.hikeSummary" placeholder="Hike Summary"></textarea></div><br>
          </div>
          <div class="form-section">
-            <p>DETAILS</p>
+            <p class="hdr-txt">DETAILS</p>
             <div class="pre-text"><p>Difficulty:</p></div><div><input ng-model="hike.difficulty" placeholder="Difficulty"/></div><br>
             <div class="pre-text"><p>Total Miles:</p></div><div><input ng-model="hike.milesLong" placeholder="Miles"/></div><br>
             <div class="pre-text"><p>Elevation:</p></div><div><input ng-model="hike.elevationGain" placeholder="Elevation"/></div><br>
             <div class="pre-text"><p>Rating:</p></div><div><input ng-model="hike.rating" placeholder="Rating"/></div><br>
+            <div class="pre-text"><p>Latitude:</p></div><div><input ng-model="hike.latitude" placeholder="Latitude"></div>
+            <div class="pre-text"><p>Longitude:</p></div><div><input ng-model="hike.longitude" placeholder="Longitude"></div>
          </div>
          <div>
             <button ng-click="createHike(hike)">SUBMIT HIKE</button>
          </div>
       </form>
    </div>
+   <hr>
+   <review-form-dir></review-form-dir>
    
 </div>

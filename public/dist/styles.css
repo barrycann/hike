@@ -86,32 +86,31 @@ body {
   font-family: 'Droid Serif', sans-serif; }
 
 h1 {
-  font-size: 40px;
-  font-family: 'Oswald', sans-serif; }
+  font: 42px/50px 'Amatic SC', sans-serif;
+  font-weight: 500;
+  margin: 10px 0 20px 0; }
 
 h2 {
-  font-size: 28px; }
+  font: 32px/42px 'Open Sans', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
 
 h3 {
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  font-size: 32px;
-  font-weight: 700;
+  font: 32px/38px 'Amatic SC', sans-serif;
   color: ghostwhite; }
 
 h4 {
-  font-size: 16px;
-  font-weight: 700;
-  color: #eee; }
+  font: 22px/28px 'Oswald', sans-serif; }
 
 h5 {
-  font-size: 14px;
-  font-style: italic;
-  padding-top: 5px;
-  color: #ccc; }
+  font: 14px/18px 'Gentium Basic', serif;
+  text-transform: uppercase;
+  font-weight: 300px;
+  letter-spacing: 0.2em; }
 
 p {
-  font-size: 14px; }
+  font: 18px/27px 'Gentium Basic', serif; }
 
 input, textarea {
   line-height: 16px;
@@ -140,22 +139,29 @@ input, textarea {
       vertical-align: middle; }
 
 .nav-bar {
-  position: relative;
+  position: fixed;
   top: 0px;
   width: 100%;
   height: 80px;
-  background-color: #3F3637; }
+  background-color: #212; }
+  .nav-bar .left-nav {
+    position: absolute;
+    left: 30px;
+    top: 25px; }
+    .nav-bar .left-nav img {
+      height: 30px; }
 
 .main-nav {
   position: absolute;
-  right: 30px; }
+  right: 30px;
+  font-family: 'Patua One', sans-serif; }
   .main-nav ul {
     list-style: none; }
     .main-nav ul li {
       display: inline-block;
       height: 80px;
       line-height: 80px;
-      padding: 0 10px;
+      padding: 0 15px;
       color: white; }
       .main-nav ul li p {
         margin-top: 2px; }
@@ -164,12 +170,61 @@ input, textarea {
         vertical-align: middle; }
 
 .main-container {
-  padding: 30px 50px;
-  height: 100vh;
-  background-image: url("../img/salt-lake-back.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  margin-top: 80px;
+  padding: 30px 15%;
+  min-height: 100vh; }
+
+.static-bg {
+  background: url("../img/sunset.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover; }
+
+.hero {
+  height: 1080px;
+  overflow: hidden;
+  position: relative; }
+
+.layer {
+  background-position: bottom center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 1080px;
+  position: fixed;
+  z-index: -1; }
+
+.hero, .layer {
+  min-height: 1080px; }
+
+.layer-bg {
+  background-image: url("./../img/parallax1.png"); }
+
+.layer-1 {
+  background-image: url("./../img/parallax2.png"); }
+
+.layer-2 {
+  background-image: url("./../img/parallax3.png"); }
+
+.layer-3 {
+  background-image: url("./../img/parallax4.png"); }
+
+.layer-4 {
+  background-image: url("./../img/parallax5.png"); }
+
+.layer-5 {
+  background-image: url("./../img/parallax6.png"); }
+
+.layer-6 {
+  background-image: url("./../img/parallax7.png"); }
+
+.layer-7 {
+  background-image: url("./../img/parallax8.png"); }
+
+.front-content {
+  background-color: #1E0E1D;
+  height: 1200px; }
 
 .login-container {
   margin-top: 20px;
@@ -193,7 +248,10 @@ input, textarea {
     display: inline-block; }
   .form-section .pre-text {
     text-align: left;
-    width: 60px; }
+    width: 90px; }
+
+.hdr-txt {
+  padding-bottom: 15px; }
 
 .hike-filter {
   background: rgba(255, 255, 255, 0.5); }
@@ -228,7 +286,7 @@ input, textarea {
     color: #ccc; }
   .lower-line p {
     padding-top: 2px;
-    color: #aaa; }
+    color: #ccc; }
 
 .fl-row {
   display: flex;
@@ -270,7 +328,7 @@ input, textarea {
     height: 600px;
     background-color: #599; }
     .hike-billboard .hike-photo-box .hike-title {
-      margin: 10px 0 0 10px; }
+      padding: 10px 0 0 10px; }
   .hike-billboard .hike-sideinfo {
     flex: 0 0 15%;
     height: 600px;
@@ -283,7 +341,7 @@ input, textarea {
       .hike-billboard .hike-sideinfo .info-block h1 {
         color: #ccc; }
       .hike-billboard .hike-sideinfo .info-block p {
-        color: #aaa; }
+        color: #ccc; }
 
 .hike-lower-info {
   margin-top: 30px;
@@ -291,16 +349,35 @@ input, textarea {
   flex-flow: row nowrap;
   justify-content: space-between;
   width: 100%;
-  height: 300px; }
+  height: 300px;
+  border-radius: 3px; }
   .hike-lower-info .weather {
     flex: 0 0 300px;
     height: 300px;
-    background: #175; }
+    background: #eee;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 2px; }
+    .hike-lower-info .weather .weather-today {
+      height: 150px; }
+    .hike-lower-info .weather .high-temp {
+      color: #755; }
+    .hike-lower-info .weather .low-temp {
+      color: #557; }
+    .hike-lower-info .weather .weather-forecast {
+      text-align: center;
+      height: 120px; }
+      .hike-lower-info .weather .weather-forecast .day-name {
+        color: #333; }
+      .hike-lower-info .weather .weather-forecast .forecast-day {
+        display: inline-block;
+        width: 90px; }
   .hike-lower-info .summary {
     flex: 1 1 auto;
     padding: 5px 0 0 30px;
     height: 300px;
-    background: #665; }
+    background: rgba(255, 255, 255, 0.3); }
     .hike-lower-info .summary p {
       padding-top: 10px;
       text-align: justify; }
@@ -315,5 +392,51 @@ input, textarea {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
   /* IE6-9 */ }
+
+.outer-review-box {
+  width: 100%; }
+
+.review-userimage {
+  width: 100px;
+  height: 100px;
+  background-color: #333;
+  border-radius: 50%; }
+
+.white-box {
+  width: calc(100%-30px);
+  padding: 10px 30px;
+  margin: 10px 0 20px 0;
+  background: rgba(255, 255, 255, 0.7); }
+
+.round-corners {
+  border-radius: 3px; }
+
+.review-image-box {
+  flex: 0 0 150px;
+  text-align: center;
+  font-family: '', sans-serif; }
+
+.review-text-box {
+  flex: 1 1 auto; }
+  .review-text-box .header {
+    padding-bottom: 15px; }
+    .review-text-box .header h4 {
+      float: left; }
+    .review-text-box .header p {
+      float: right; }
+
+.profile-box {
+  background: white;
+  border-radius: 2px;
+  margin: 0 auto;
+  width: 80%; }
+  .profile-box img {
+    width: 150px; }
+
+.text1 {
+  font-family: '', sans-serif; }
+
+.text2 {
+  font-family: '', sans-serif; }
 
 /*# sourceMappingURL=maps/styles.css.map */

@@ -1,8 +1,11 @@
 angular.module('hikeApp')
 .directive('weatherDir', function(){
    return {
-      restrict: 'E',
+      restrict: 'EA',
+      scope: {
+         hikeInfo: '=info'
+      },
       templateUrl: './views/weatherTemplate.html',
-      controller: '../weatherCtrl.js'
+      controller: 'weatherCtrl'
    }
 })
