@@ -46,95 +46,9 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate']).config(function ($urlRoute
 });
 'use strict';
 
-angular.module('hikeApp').directive('colorChange', function () {
-   return {
-      restrict: 'A',
-      replace: true,
-      link: function link(scope, elem, attrs) {
-         elem.bind('click', function () {
-            console.log(scope.$state);
-         });
-         elem.bind('mouseover', function () {
-            elem.css('cursor', ' ');
-         });
-      }
-   };
-});
-'use strict';
-
-angular.module('hikeApp').directive('navDir', function () {
-   return {
-      restrict: 'E',
-      templateUrl: './views/navTemplate.html',
-      controller: 'navCtrl'
-   };
-});
-'use strict';
-
-angular.module('hikeApp').directive('parallaxDir', function () {
-   return {
-      restrict: 'A',
-      link: function link(scope, elem, attrs) {
-
-         $(document).on("scroll", function (event) {
-            var depth, movement, translate3d, layer;
-            var topDistance = pageYOffset;
-            var layers = document.querySelectorAll("[data-type='parallax']");
-            for (var i = 0; i < layers.length; i++) {
-               layer = layers[i];
-               depth = layer.getAttribute('data-depth');
-               movement = -(topDistance * depth);
-               translate3d = 'translate3d(0, ' + movement + 'px, 0)';
-               layer.style['-webkit-transform'] = translate3d;
-               layer.style['-moz-transform'] = translate3d;
-               layer.style['-ms-transform'] = translate3d;
-               layer.style['-o-transform'] = translate3d;
-               layer.style.transform = translate3d;
-            }
-         });
-      }
-   };
-});
-'use strict';
-
-angular.module('hikeApp').directive('reviewDir', function () {
-   return {
-      restrict: 'E',
-      templateUrl: './views/reviewTemplate.html'
-   };
-});
-'use strict';
-
-angular.module('hikeApp').directive('reviewFormDir', function () {
-      return {
-            restrict: 'AE',
-            templateUrl: './views/reviewFormTemplate.html',
-            controller: 'reviewFormCtrl'
-      };
-});
-'use strict';
-
-angular.module('hikeApp').directive('smallHikeDir', function () {
-   return {
-      restrict: 'E',
-      templateUrl: './views/smallHikeTemplate.html'
-   };
-});
-'use strict';
-
-angular.module('hikeApp').directive('weatherDir', function () {
-   return {
-      restrict: 'EA',
-      scope: {
-         hikeInfo: '=info'
-      },
-      templateUrl: './views/weatherTemplate.html',
-      controller: 'weatherCtrl'
-   };
-});
-'use strict';
-
 angular.module('hikeApp').controller('exploreCtrl', function ($scope, exploreService) {
+
+   $scope.hikeFilter = {};
 
    $scope.getHikes = function () {
       exploreService.getHikes().then(function (data) {
@@ -147,6 +61,8 @@ angular.module('hikeApp').controller('exploreCtrl', function ($scope, exploreSer
          $scope.hikeData = data;
       });
    };
+
+   $scope.difficultFilter = function () {};
 
    $scope.getHikes();
 });
@@ -237,6 +153,128 @@ angular.module('hikeApp').controller('weatherCtrl', function ($scope, weatherSer
 });
 'use strict';
 
+angular.module('hikeApp').directive('colorChange', function () {
+   return {
+      restrict: 'A',
+      replace: true,
+      link: function link(scope, elem, attrs) {
+         elem.bind('click', function () {
+            console.log(scope.$state);
+         });
+         elem.bind('mouseover', function () {
+            elem.css('cursor', ' ');
+         });
+      }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('expandBox', function () {
+   return {
+      restrict: 'A',
+      link: function link(scope, elem, attrs) {
+         $(elem).bind("click", function () {
+            $(".expandable").slideToggle(300, function () {});
+         });
+      }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('fadeOutDir', function () {
+   return {
+      restrict: 'A',
+      link: function link(scope, elem, attrs) {
+
+         $(document).bind('scroll', function () {
+            var startFade = 100;
+            var endFade = 600;
+            var pyo = pageYOffset;
+            var fadeOpacity = (endFade - pageYOffset) / (endFade - startFade);
+
+            if (pyo < startFade) {
+               elem.css('opacity', 1);
+            } else if (pyo >= startFade && pyo <= endFade) {
+               elem.css('opacity', fadeOpacity);
+            } else if (pyo > endFade) {
+               elem.css('opacity', 0);
+            }
+         });
+      }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('navDir', function () {
+   return {
+      restrict: 'E',
+      templateUrl: './views/navTemplate.html',
+      controller: 'navCtrl'
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('parallaxDir', function () {
+   return {
+      restrict: 'A',
+      link: function link(scope, elem, attrs) {
+         $(document).on("scroll", function (event) {
+            var depth, movement, translate3d, layer;
+            var layers = document.querySelectorAll("[data-type='parallax']");
+            for (var i = 0; i < layers.length; i++) {
+               layer = layers[i];
+               depth = layer.getAttribute('data-depth');
+               movement = -(pageYOffset * depth);
+               translate3d = 'translate3d(0, ' + movement + 'px, 0)';
+               layer.style['-webkit-transform'] = translate3d;
+               layer.style['-moz-transform'] = translate3d;
+               layer.style['-ms-transform'] = translate3d;
+               layer.style['-o-transform'] = translate3d;
+               layer.style.transform = translate3d;
+            }
+         });
+      }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('reviewDir', function () {
+   return {
+      restrict: 'E',
+      templateUrl: './views/reviewTemplate.html'
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('reviewFormDir', function () {
+      return {
+            restrict: 'AE',
+            templateUrl: './views/reviewFormTemplate.html',
+            controller: 'reviewFormCtrl'
+      };
+});
+'use strict';
+
+angular.module('hikeApp').directive('smallHikeDir', function () {
+   return {
+      restrict: 'E',
+      templateUrl: './views/smallHikeTemplate.html'
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('weatherDir', function () {
+   return {
+      restrict: 'EA',
+      scope: {
+         hikeInfo: '=info'
+      },
+      templateUrl: './views/weatherTemplate.html',
+      controller: 'weatherCtrl'
+   };
+});
+'use strict';
+
 angular.module('hikeApp').service('authService', function ($http) {
 
    this.logout = function () {
@@ -263,15 +301,48 @@ angular.module('hikeApp').service('exploreService', function ($http) {
 
    this.getHikes = function () {
       return $http.get('/api/hikes').then(function (response) {
-         var parsed = response.data;
-         return parsed;
+         var reviewArr = response.data;
+         for (var i = 0; i < reviewArr.length; i++) {
+            var diff = reviewArr[i].difficulty;
+            var urlArr = ['./img/rating1.png', './img/rating2.png', './img/rating3.png', './img/rating4.png', './img/rating5.png', './img/rating6.png', './img/rating7.png', './img/rating8.png', './img/rating9.png', './img/rating10.png'];
+
+            switch (diff) {
+               case 1:
+               case 2:
+               case 3:
+                  reviewArr[i].diffText = 'easy';
+                  break;
+               case 4:
+               case 5:
+               case 6:
+                  reviewArr[i].diffText = 'medium';
+                  break;
+               case 7:
+               case 8:
+                  reviewArr[i].diffText = 'challenging';
+                  break;
+               case 9:
+               case 10:
+                  reviewArr[i].diffText = 'strenuous';
+                  break;
+               default:
+                  reviewArr[i].diffText = 'None Assigned';
+            }
+            reviewArr[i].ratingurl = urlArr[reviewArr[i].rating - 1];
+         }
+         return reviewArr;
       });
    };
 
    this.getFilteredHikes = function () {
       return $http.get('/api/hikes/' + filters).then(function (response) {
-         var parsed = response.data;
-         return parsed;
+
+         var reviewArr = response.data;
+         var diffArr = ['easy', 'medium', 'challenging', 'strenuous'];
+         for (var i = 0; i < reviewArr.length; i++) {
+            reviewArr[i].diffText = urlArr[reviewArr[i].reviewrating - 1];
+         }
+         return reviewArr;
       });
    };
 });

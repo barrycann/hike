@@ -109,6 +109,13 @@ h5 {
   font-weight: 300px;
   letter-spacing: 0.2em; }
 
+h6 {
+  font: 14px/18px 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: 300px;
+  letter-spacing: 0.15em;
+  color: #eee; }
+
 p {
   font: 18px/27px 'Gentium Basic', serif; }
 
@@ -119,10 +126,18 @@ input, textarea {
   margin: 5px; }
 
 .box {
-  margin: 10px;
+  margin: 7px 0 15px 0;
   border-radius: 2px; }
 
-.centered {
+.light-line {
+  border: 0;
+  width: 95%;
+  border-top: 1px solid #a97; }
+
+.mid-caps {
+  font: 18px/24px 'Oswald', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   text-align: center; }
 
 .billboard {
@@ -143,7 +158,8 @@ input, textarea {
   top: 0px;
   width: 100%;
   height: 80px;
-  background-color: #212; }
+  background-color: #212;
+  z-index: 1; }
   .nav-bar .left-nav {
     position: absolute;
     left: 30px;
@@ -160,11 +176,9 @@ input, textarea {
     .main-nav ul li {
       display: inline-block;
       height: 80px;
-      line-height: 80px;
-      padding: 0 15px;
+      line-height: 81px;
+      padding: 0 13px;
       color: white; }
-      .main-nav ul li p {
-        margin-top: 2px; }
       .main-nav ul li img {
         height: 30px;
         vertical-align: middle; }
@@ -175,7 +189,7 @@ input, textarea {
   min-height: 100vh; }
 
 .static-bg {
-  background: url("../img/sunset.jpg") no-repeat center center fixed;
+  background: url("../img/explore-bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -185,6 +199,16 @@ input, textarea {
   height: 1080px;
   overflow: hidden;
   position: relative; }
+
+.main-logo {
+  position: fixed;
+  text-align: center;
+  top: 14%;
+  left: 50%;
+  z-index: 0;
+  margin-left: -200px; }
+  .main-logo h3 {
+    padding-top: 10px; }
 
 .layer {
   background-position: bottom center;
@@ -254,25 +278,23 @@ input, textarea {
   padding-bottom: 15px; }
 
 .hike-filter {
+  padding: 15px;
   background: rgba(255, 255, 255, 0.5); }
 
 .hike-card {
   position: relative;
-  background: rgba(0, 0, 0, 0.5); }
+  background: rgba(120, 105, 85, 0.9);
+  color: #fff; }
   .hike-card .image-area {
-    flex: 1 1 auto; }
+    flex: 0 0 255; }
   .hike-card .primary-info {
-    flex: 1 1 30%; }
-  .hike-card .descript {
-    flex: 1 1 50%; }
+    flex: 1 1 auto; }
   .hike-card .key-image {
+    border: 2px dashed #bbb;
     width: 225px;
     height: 150px; }
   .hike-card .pad-15 {
-    padding: 17px 0 14px 17px; }
-
-.top-line {
-  padding-top: 10px; }
+    padding: 15px; }
 
 .lower-line {
   text-align: center;
@@ -287,19 +309,6 @@ input, textarea {
   .lower-line p {
     padding-top: 2px;
     color: #ccc; }
-
-.fl-row {
-  display: flex;
-  flex-flow: row nowrap; }
-
-.between {
-  justify-content: space-between; }
-
-.around {
-  justify-content: space-around; }
-
-.fl-start {
-  align-items: flex-start; }
 
 .fl-r-b-s {
   display: flex;
@@ -316,6 +325,15 @@ input, textarea {
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-start; }
+
+.search-filter {
+  display: flex;
+  flex-flow: row-nowrap;
+  justify-content: center; }
+  .search-filter div {
+    flex: 0 0 auto; }
+    .search-filter div p {
+      margin-top: 7px; }
 
 .hike-billboard {
   display: flex;
@@ -438,5 +456,27 @@ input, textarea {
 
 .text2 {
   font-family: '', sans-serif; }
+
+.centered {
+  width: 100%;
+  text-align: center; }
+
+.expandable {
+  display: flex;
+  width: 100%; }
+  .expandable .filter-box {
+    margin: 10px 2%;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
+    height: 130px;
+    border: 1px dashed #665; }
+    .expandable .filter-box .flex-holder {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between; }
+      .expandable .filter-box .flex-holder .flex-edge {
+        flex: 0 0 auto; }
 
 /*# sourceMappingURL=maps/styles.css.map */
