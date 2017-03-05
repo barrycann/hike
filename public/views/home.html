@@ -9,28 +9,58 @@
    <div class="layer-7 layer" data-depth="0.90" data-type="parallax"></div>
 </div>
 <div class="main-logo" fade-out-dir>
-   <img src="./../img/logo.png"/>
-   <h3>find the perfect trail and go</h3>
-   <p>scroll down to start</p>
-   <div class="floaty"><img src="./../img/down-arrow-tree.png"/></div>
+   <div>
+      <img src="./../img/logo.png"/>
+   </div>
+   <div class="quote-box">
+      <p class="quote">"The clearest way into the universe <br> is through a forest wilderness."</p>
+      <p class="source">John Muir</p>
+   </div>
+   <div class="fade-in">
+      <p class="scroll-down">( Scroll Down )</p>
+      <img src="./../img/down-arrow-tree.png"/>
+   </div>
 </div>
 <div class="front-content">
-   <div class="main-info">
-       <p class="home-info-header">instahike helps you <span class="emphasis">find a trail</span> fast</p>  <!-- and sends directions to your phone -->
+   <div class="main-info" fade-in-dir>
+       <p class="home-info-header">instahike helps you <span class="emphasis">find a nearby trail</span> fast</p>  <!-- and sends directions to your phone -->
       <p>Just answer a few simple questions...</p>
       <div class="questions">
          <div class="q-box">
             <h2 class="number">1</h2>
-            <p>What kind of hike are you looking for?</p>
-            <select>
-               <option>Short and Sweet (0-2 Miles)</option>
-               <option>A Nice Mid-Range Thigh-Burner (2-5 Miles)</option>
-               <option>I'm Ready to Conquer a Mountain (5+ Miles)</option>
-            </select>
+            <p>Select Your Hike Length</p>
+            <div class="little-box-holder">
+               <div class="little-box">
+                  <p>Short and Sweet</p>
+                  <h6>0-2 Miles</h6>
+               </div>
+               <div class="little-box">
+                  <p>Mid-Length</p>
+                  <h6>2-5 Miles</h6>
+               </div>
+               <div class="little-box">
+                  <p>Let's Conquer a Mountain</p>
+                  <h6>5+ Miles</h6>
+               </div>
+            </div>
          </div>
          <div class="q-box">
             <h2 class="number">2</h2>
-            <p>What is your preferred destination?</p>
+            <p>Select A Destination</p>
+            <div class="little-box-holder">
+               <div class="little-box">
+                  <p>Short and Sweet</p>
+                  <h6>Waterfall</h6>
+               </div>
+               <div class="little-box">
+                  <p>Mid-Length</p>
+                  <h6>Lake</h6>
+               </div>
+               <div class="little-box">
+                  <p>Let's Conquer a Mountain</p>
+                  <h6>Peak</h6>
+               </div>
+            </div>
             <select>
                <option>Waterfall</option>
                <option>Lake</option>
@@ -39,7 +69,7 @@
          </div>
       </div>
       <div>
-         <button>Find My Suggested Hike!</button>
+         <button class="main-button">Find My Suggested Hike!</button>
       </div>
       <div>
          <img class="rocks" src="./../img/rocks.jpg"/>

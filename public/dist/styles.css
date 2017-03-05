@@ -91,9 +91,8 @@ h1 {
   margin: 10px 0 20px 0; }
 
 h2 {
-  font: 30px/30px 'Open Sans', sans-serif;
+  font: 30px/30px 'Crete Round', sans-serif;
   font-weight: 800;
-  text-transform: uppercase;
   letter-spacing: 1px; }
 
 h3 {
@@ -124,6 +123,30 @@ input, textarea {
   font-size: 14px;
   padding: 5px;
   margin: 5px; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fade-in {
+  opacity: 0;
+  -webkit-animation: fadeIn 0.5s linear 9s 1 normal forwards;
+  -moz-animation: fadeIn 0.5s linear 9s 1 normal forwards;
+  animation: fadeIn 0.5s linear 9s 1 normal forwards; }
 
 .box {
   margin: 7px 0 15px 0;
@@ -191,11 +214,19 @@ input, textarea {
   min-height: 100vh; }
 
 .static-bg {
-  background: url("../img/explore-bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+
+.explore-bg {
+  background: url("../img/bg/explore-bg.jpg") no-repeat center center fixed; }
+
+.profile-bg {
+  background: url("../img/bg/profile-bg.jpg") no-repeat center center fixed; }
+
+.hike-bg {
+  background: url("../img/bg/hike-bg.jpg") no-repeat center center fixed; }
 
 .hero {
   height: 1080px;
@@ -205,12 +236,10 @@ input, textarea {
 .main-logo {
   position: fixed;
   text-align: center;
-  top: 14%;
+  top: 150px;
   left: 50%;
   z-index: 0;
-  margin-left: -200px; }
-  .main-logo h3 {
-    padding-top: 10px; }
+  margin-left: -175px; }
 
 .layer {
   background-position: bottom center;
@@ -249,13 +278,13 @@ input, textarea {
   background-image: url("./../img/compressed/parallax8-min.png"); }
 
 .front-content {
-  height: 855px;
   background-color: #1E0E1D;
-  color: #eee; }
+  color: #eee;
+  height: 550px; }
   .front-content .main-info {
     position: relative;
     width: 60%;
-    height: 600px;
+    height: 410px;
     margin: 0 auto;
     padding: 50px;
     border: 1px solid #BE453D;
@@ -275,6 +304,15 @@ input, textarea {
       position: absolute;
       bottom: 10px;
       left: 10px; }
+
+.little-box-holder {
+  display: flex; }
+
+.little-box {
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid #6E202C;
+  flex: 0 0 30%; }
 
 .login-container {
   margin-top: 20px;
@@ -343,7 +381,6 @@ input, textarea {
       margin: 0 10px;
       padding: 0 5px; }
   .hike-card .key-image {
-    border: 2px dashed #bbb;
     height: 150px; }
 
 .fl-r-b-s {
@@ -519,5 +556,62 @@ input, textarea {
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-start; }
+
+.full-width-box {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #ddd; }
+
+.quote-box {
+  width: 300px;
+  margin-top: 33px;
+  margin-bottom: 10px;
+  padding: 10px 20px 3px 20px;
+  border-top: 1px dashed #ffc8bf;
+  border-bottom: 1px dashed #ffc8bf;
+  text-align: center; }
+  .quote-box .quote {
+    font-size: 18px;
+    font-family: 'Gentium Basic', serif;
+    text-shadow: 0 1px 2px darkred;
+    color: ghostwhite; }
+  .quote-box .source {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: ghostwhite; }
+
+.scroll-down {
+  text-transform: uppercase;
+  font-size: 14px; }
+
+.main-button {
+  -moz-box-shadow: inset 0px 35px 0px -14px #b54b3a;
+  -webkit-box-shadow: inset 0px 35px 0px -14px #b54b3a;
+  box-shadow: inset 0px 35px 0px -14px #b54b3a;
+  background-color: #a73f2d;
+  display: inline-block;
+  color: #ffffff;
+  font-family: "Crete Round", sans-serif;
+  font-size: 18px;
+  padding: 10px 50px;
+  text-decoration: none; }
+
+.main-button:hover {
+  background-color: #b34332; }
+
+.main-button:active {
+  position: relative;
+  top: 2px; }
+
+.footer {
+  height: 50px;
+  text-align: center;
+  background-color: #1E0E1D;
+  border-top: 1px solid #444; }
+  .footer h6 {
+    margin-top: 15px;
+    color: #bcac9c; }
 
 /*# sourceMappingURL=maps/styles.css.map */

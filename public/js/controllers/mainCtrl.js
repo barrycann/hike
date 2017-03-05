@@ -12,7 +12,6 @@ angular.module('hikeApp')
          console.log(err);
       });
    }
-
    $scope.getUserData();
 
    $scope.createHike = function(hike){

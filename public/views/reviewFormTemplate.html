@@ -1,14 +1,17 @@
 <div>
    <div class="outer-review-box">
-   <h3>Write a Review</h3>
-   <div class="white-box round-corners fl-r-b-s">
+      <div expand-box>
+            <h3>Write a Review</h3>
+      </div>
+   
+   <div class="expandable">
       <div class="review-image-box">
-         <img class="review-userimage"/>
-         <p>{{review.username}}</p>
+         <img class="review-userimage" ng-src="{{user.userimage}}"/>
+         <p>{{user.username}}</p>
       </div>
       <div class="review-text-box">
          <div class="header">
-            <div><input ng-model="review.title" placeholder="Be Clever"/></div>
+            <div><input ng-model="review.title" placeholder="Review Title"/></div>
             <div class="pre-text"><p>Rating:</p></div><div>
                   <select ng-model="review.reviewrating">
                      <option value="1">1</option>
@@ -27,6 +30,9 @@
          <div>
             <div><textarea rows="4" ng-model="review.reviewtext" placeholder="Write your review here."></textarea></div>
          </div>
+      </div>
+      <div>
+            <button>Submit</button>
       </div>
    </div>
 </div>

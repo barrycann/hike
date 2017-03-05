@@ -101,7 +101,6 @@ angular.module('hikeApp').controller('mainCtrl', function ($scope, mainService, 
          console.log(err);
       });
    };
-
    $scope.getUserData();
 
    $scope.createHike = function (hike) {
@@ -192,6 +191,9 @@ angular.module('hikeApp').directive('colorChange', function () {
                   case 'hikeDetails':
                      $(".nav-bar").css("background-color", 'pink');
                      break;
+                  case 'profile':
+                     $(".nav-bar").css("background-color", '#042735');
+                     break;
                   default:
                      $(".nav-bar").css("background-color", '#212');
                      break;
@@ -244,6 +246,30 @@ angular.module('hikeApp').directive('expandBox', function () {
 });
 'use strict';
 
+angular.module('hikeApp').directive('fadeInDir', function () {
+   return {
+      restrict: 'A',
+      link: function link(scope, elem, attrs) {
+
+         $(document).bind('scroll', function () {
+            var startFade = 400;
+            var endFade = 700;
+            var pyo = pageYOffset;
+            var fadeOpacity = (endFade - pageYOffset) / (endFade - startFade);
+
+            if (pyo < startFade) {
+               elem.css('opacity', 0);
+            } else if (pyo >= startFade && pyo <= endFade) {
+               elem.css('opacity', 1 - fadeOpacity);
+            } else if (pyo > endFade) {
+               elem.css('opacity', 1);
+            }
+         });
+      }
+   };
+});
+'use strict';
+
 angular.module('hikeApp').directive('fadeOutDir', function () {
    return {
       restrict: 'A',
@@ -251,7 +277,7 @@ angular.module('hikeApp').directive('fadeOutDir', function () {
 
          $(document).bind('scroll', function () {
             var startFade = 100;
-            var endFade = 600;
+            var endFade = 500;
             var pyo = pageYOffset;
             var fadeOpacity = (endFade - pageYOffset) / (endFade - startFade);
 
@@ -264,6 +290,14 @@ angular.module('hikeApp').directive('fadeOutDir', function () {
             }
          });
       }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('footerDir', function () {
+   return {
+      restrict: 'E',
+      templateUrl: './views/footer.html'
    };
 });
 'use strict';
@@ -312,8 +346,7 @@ angular.module('hikeApp').directive('reviewDir', function () {
 angular.module('hikeApp').directive('reviewFormDir', function () {
       return {
             restrict: 'AE',
-            templateUrl: './views/reviewFormTemplate.html',
-            controller: 'reviewFormCtrl'
+            templateUrl: './views/reviewFormTemplate.html'
       };
 });
 'use strict';

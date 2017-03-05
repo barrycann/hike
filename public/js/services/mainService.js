@@ -13,6 +13,4 @@ angular.module('hikeApp')
       return $http.delete('/api/hikes', name)
    }
 
-   
-
 });

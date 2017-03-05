@@ -2,7 +2,6 @@ angular.module('hikeApp')
 .directive('reviewFormDir', function(){
       return {
             restrict: 'AE',
-            templateUrl: './views/reviewFormTemplate.html',
-            controller: 'reviewFormCtrl'
+            templateUrl: './views/reviewFormTemplate.html'
       }
 });

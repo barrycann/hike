@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container static-bg profile-bg">
    <div class="profile-box">
       <h3>Welcome, {{user.username}}</h3>
       <p>Current Picture:</p>
@@ -11,6 +11,9 @@
    <input type="text" ng-model="user.useremail">
    <textarea rows="4" cols="40" ng-model="user.userbio"></textarea>
    <button type="button" ng-click="updateUser(user)">UPDATE</button>
-
-   <button ui-sref="hikeAdmin">Create a Hike</button>
+   <div class="full-width-box">
+      <h4 class="dark-text centered">Admin Controls</h4>
+      <button class="main-button" ui-sref="hikeAdmin">Create a Hike</button>
+   </div>
+   
 </div>

@@ -21,6 +21,9 @@ angular.module('hikeApp')
                   case 'hikeDetails':
                      $(".nav-bar").css("background-color", 'pink');
                      break;
+                  case 'profile':
+                        $(".nav-bar").css("background-color", '#042735');
+                        break;
                   default:
                      $(".nav-bar").css("background-color", '#212');
                      break;
