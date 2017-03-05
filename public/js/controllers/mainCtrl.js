@@ -1,5 +1,19 @@
 angular.module('hikeApp')
-.controller('mainCtrl', function($scope, mainService){
+.controller('mainCtrl', function($scope, mainService, authService){
+
+   $scope.getUserData = function(){
+      authService.getCurrentUser()
+      .then(function(response){
+         if(response.data){
+            $scope.user = response.data;
+         }
+      })
+      .catch(function(err){
+         console.log(err);
+      });
+   }
+
+   $scope.getUserData();
 
    $scope.createHike = function(hike){
       mainService.createHike(hike)

@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-   font: 32px/42px 'Open Sans', sans-serif;
+   font: 30px/30px 'Open Sans', sans-serif;
    font-weight: 800;
    text-transform: uppercase;
    letter-spacing: 1px;
@@ -109,6 +109,7 @@ input, textarea {
    height: 80px;
    background-color: #212;
    z-index: 1;
+   transition: background-color 0.6s;
 
    .left-nav{
       position: absolute;
@@ -133,7 +134,8 @@ input, textarea {
          padding: 0 13px;
          color: white;
          img {
-            height: 30px;
+            height: 38px;
+            border-radius: 19px;
             vertical-align: middle;
          }
       }
@@ -187,41 +189,85 @@ input, textarea {
 }
 
 .layer-bg {
-   background-image: url('./../img/parallax1.png');
+   background-image: url('./../img/compressed/parallax1-min.png');
 }
 
 .layer-1 {
-   background-image: url('./../img/parallax2.png');
+   background-image: url('./../img/compressed/parallax2-min.png');
 }
 
 .layer-2 {
-   background-image: url('./../img/parallax3.png');
+   background-image: url('./../img/compressed/parallax3-min.png');
 }
 
 .layer-3 {
-   background-image: url('./../img/parallax4.png');
+   background-image: url('./../img/compressed/parallax4-min.png');
 }
 
 .layer-4 {
-   background-image: url('./../img/parallax5.png');
+   background-image: url('./../img/compressed/parallax5-min.png');
 }
 
 .layer-5 {
-   background-image: url('./../img/parallax6.png');
+   background-image: url('./../img/compressed/parallax6-min.png');
 }
 
 .layer-6 {
-   background-image: url('./../img/parallax7.png');
+   background-image: url('./../img/compressed/parallax7-min.png');
 }
 
 .layer-7 {
-   background-image: url('./../img/parallax8.png');
+   background-image: url('./../img/compressed/parallax8-min.png');
 }
 
+// .floaty {
+//    position: relative;
+//    animation-name: floaty;
+//    animation-duration: 2s;
+//    animation-direction: alternate;
+//    animation-iteration-count: infinite;
+// }
+
+// @keyframes floaty {
+//    from {bottom: 0px;}
+//    to {bottom: 5px;}
+// }
 
 .front-content {
+   height: 855px;
    background-color: #1E0E1D;
-   height: 1200px;
+   color: #eee;
+   .main-info {
+      position: relative;
+      width: 60%;
+      height: 600px;
+      margin: 0 auto;
+      padding: 50px;
+      border: 1px solid #BE453D;
+      text-align: center;
+      .home-info-header {
+         font: 42px/50px 'Amatic SC', sans-serif;
+         margin-bottom: 70px;
+         color: ghostwhite;
+         .emphasis {
+            color: salmon;
+         }
+      }
+      .questions {
+         margin: 10px auto;
+         
+         .q-box {
+            display: inline-block;
+            padding: 20px;
+         }
+      }
+      .rocks {
+         position: absolute;
+         bottom: 10px;
+         left: 10px;
+      }
+   }
+   
 }
 
 .login-container {
@@ -270,39 +316,50 @@ input, textarea {
    color: #fff;
 
    .image-area {
-      flex: 0 0 255;
+      flex: 0 0 auto;
+      padding: 15px;
    }
 
    .primary-info {
+      padding: 15px 15px 15px 0;
       flex: 1 1 auto;
+      h2{
+         padding-bottom: 2px;
+      }
+      .mid-caps{
+         flex: 0 0 auto;
+         font-size: 14px;
+         text-align: left;
+         color: #fff;
+      }
+      .flex-holder{
+         margin-top: 10px;
+      }
+      .diff {
+         margin-right: 10px;
+         border-radius: 3px;
+         padding: 3px 5px 2px 5px;
+         background-color: #111;
+      }
+      .rating {
+         margin-left: 10px;
+         background-color: #dcb;
+         border-radius: 3px;
+         flex: 0 0 auto;
+         padding: 3px 5px 2px 5px;
+      }
+      .info-block{
+         border: 1px solid #dcb;
+         border-radius: 3px;
+         margin: 0 10px;
+         padding: 0 5px;
+      }
    }
 
    .key-image {
       border: 2px dashed #bbb;
-      width: 225px;
       height: 150px;
    }
-   .pad-15 {
-      padding: 15px;
-   }
-}
-
-.lower-line {
-   text-align: center;
-   .info-block {
-      margin-right: 10px;
-      border: 1px solid #776;
-      padding: 7px 5px 3px 5px;
-   }
-   h1 {
-      align-content: center;
-      color: $hike-stat;
-   }
-   p{
-      padding-top: 2px;
-      color: $hike-stat-desc;
-   }
-   padding-top: 5px;
 }
 
 .fl-r-b-s {
@@ -521,8 +578,8 @@ input, textarea {
    }
 }
 
-// .hike-search-results{
-//    height: 600px;
-//    overflow-y: auto;
-// }
-
+.flex-holder {
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: flex-start;
+}

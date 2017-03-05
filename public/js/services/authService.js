@@ -12,7 +12,7 @@ angular.module('hikeApp')
       return $http.get('/api/me')
       .then(function(response){
          return response;
-      });
+      })
    };
 
    this.editUser = function(user){

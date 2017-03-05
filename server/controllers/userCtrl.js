@@ -3,11 +3,13 @@ const db = app.get('db');
 
 module.exports = {
    me: function(req, res, next) {
-      if (!req.user){
-         console.log('Current user not found');
-         return res.sendStatus(401).send('Current user not defined');
-      } 
+      if (!req.session.passport){
+         console.log('Current user not defined');
+         return res.status(401).send('Current user not defined');
+      } else {
+         console.log('User found');
          return res.status(200).json(req.user);
+      }
    },
 
    updateCurrent: function(req, res, next){
@@ -25,4 +27,6 @@ module.exports = {
          res.status(200).send(user);
       });
    }
+
+
 }

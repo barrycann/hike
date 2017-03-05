@@ -3,6 +3,7 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
    
    $urlRouterProvider.otherwise('/');
 
+
    $stateProvider
       .state('home', {
          url: '/',
@@ -16,11 +17,8 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
       })
       .state('prepare', {
          url: '/prepare',
-         templateUrl: './views/prepare.html'
-      })
-      .state('shop', {
-         url: '/shop',
-         templateUrl: './views/shop.html'
+         templateUrl: './views/prepare.html',
+         controller: 'prepareCtrl'
       })
       .state('profile', {
          url: '/profile',
@@ -33,10 +31,12 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
                   console.log('response: data', response.data);
                   if(!response.data){
                      $state.go('home');
+                  } else {
+                     return response.data;
                   }
-                  return response.data;
                })
                .catch(function(err){
+                  console.log("Error on profile resolve: ", err)
                   $state.go('home');
                });
             }

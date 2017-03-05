@@ -1,27 +1,20 @@
-<div class="hike-card fl-r-b-s box" ng-repeat="hike in hikeData | filter:filter" ui-sref="hikeDetails({hikeName:hike.name})">
-   <div class="image-area pad-15">
+<div color-change class="hike-card fl-r-b-s box" ng-repeat="hike in hikeData | filter:filter" ui-sref="hikeDetails({hikeName:hike.name})">
+   <div class="image-area">
       <img class="key-image" src="./img/mount-olympus-1.jpg"/>
    </div>
-   <div class="primary-info pad-15">
-      <h2>{{hike.name}}</h2>
-      <h4>&quot{{hike.nickname}}&quot</h4>
-      <div class="top-line fl-r-s">
-         <div class="diff">{{hike.diffText}}</div>
-         <div class="rating"><img ng-src='{{hike.ratingurl}}'/></div>
+   <div class="primary-info">
+      <div>
+         <h2>{{hike.name}}</h2>
+         <p class="mid-caps">&quot{{hike.nickname}}&quot</p>
+         <div class="flex-holder">
+            <div class="mid-caps diff" difficulty-color>{{hike.diffText}}</div>
+            <div class="info-block"><h4>{{hike.mileslong}} <span class="mid-caps">mi</span></h4></div>
+            <div class="info-block"><h4>{{hike.elevationgain}} <span class="mid-caps">ft</span></h4></div>
+            <div class="rating"><img ng-src='{{hike.ratingurl}}'/></div>
+         </div>
       </div>
-      <div class="lower-line fl-row fl-start">
-         <div class="info-block">
-            <h1>{{hike.mileslong}}</h1>
-            <p>MILES</p>
-         </div>
-         <div class="info-block">
-            <h1>{{hike.elevationgain}}</h1>
-            <p>FT. CLIMBED</p>
-         </div>
-         <div>
-            <h4>Summary</h4>
-            <p>{{hike.summary}}</p>
-         </div>
+      <div>
+         <p>{{hike.summary}}</p>
       </div>
    </div>
 </div>

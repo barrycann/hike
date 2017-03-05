@@ -91,7 +91,7 @@ h1 {
   margin: 10px 0 20px 0; }
 
 h2 {
-  font: 32px/42px 'Open Sans', sans-serif;
+  font: 30px/30px 'Open Sans', sans-serif;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px; }
@@ -159,7 +159,8 @@ input, textarea {
   width: 100%;
   height: 80px;
   background-color: #212;
-  z-index: 1; }
+  z-index: 1;
+  transition: background-color 0.6s; }
   .nav-bar .left-nav {
     position: absolute;
     left: 30px;
@@ -180,7 +181,8 @@ input, textarea {
       padding: 0 13px;
       color: white; }
       .main-nav ul li img {
-        height: 30px;
+        height: 38px;
+        border-radius: 19px;
         vertical-align: middle; }
 
 .main-container {
@@ -223,32 +225,56 @@ input, textarea {
   min-height: 1080px; }
 
 .layer-bg {
-  background-image: url("./../img/parallax1.png"); }
+  background-image: url("./../img/compressed/parallax1-min.png"); }
 
 .layer-1 {
-  background-image: url("./../img/parallax2.png"); }
+  background-image: url("./../img/compressed/parallax2-min.png"); }
 
 .layer-2 {
-  background-image: url("./../img/parallax3.png"); }
+  background-image: url("./../img/compressed/parallax3-min.png"); }
 
 .layer-3 {
-  background-image: url("./../img/parallax4.png"); }
+  background-image: url("./../img/compressed/parallax4-min.png"); }
 
 .layer-4 {
-  background-image: url("./../img/parallax5.png"); }
+  background-image: url("./../img/compressed/parallax5-min.png"); }
 
 .layer-5 {
-  background-image: url("./../img/parallax6.png"); }
+  background-image: url("./../img/compressed/parallax6-min.png"); }
 
 .layer-6 {
-  background-image: url("./../img/parallax7.png"); }
+  background-image: url("./../img/compressed/parallax7-min.png"); }
 
 .layer-7 {
-  background-image: url("./../img/parallax8.png"); }
+  background-image: url("./../img/compressed/parallax8-min.png"); }
 
 .front-content {
+  height: 855px;
   background-color: #1E0E1D;
-  height: 1200px; }
+  color: #eee; }
+  .front-content .main-info {
+    position: relative;
+    width: 60%;
+    height: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 1px solid #BE453D;
+    text-align: center; }
+    .front-content .main-info .home-info-header {
+      font: 42px/50px 'Amatic SC', sans-serif;
+      margin-bottom: 70px;
+      color: ghostwhite; }
+      .front-content .main-info .home-info-header .emphasis {
+        color: salmon; }
+    .front-content .main-info .questions {
+      margin: 10px auto; }
+      .front-content .main-info .questions .q-box {
+        display: inline-block;
+        padding: 20px; }
+    .front-content .main-info .rocks {
+      position: absolute;
+      bottom: 10px;
+      left: 10px; }
 
 .login-container {
   margin-top: 20px;
@@ -286,29 +312,39 @@ input, textarea {
   background: rgba(120, 105, 85, 0.9);
   color: #fff; }
   .hike-card .image-area {
-    flex: 0 0 255; }
+    flex: 0 0 auto;
+    padding: 15px; }
   .hike-card .primary-info {
+    padding: 15px 15px 15px 0;
     flex: 1 1 auto; }
+    .hike-card .primary-info h2 {
+      padding-bottom: 2px; }
+    .hike-card .primary-info .mid-caps {
+      flex: 0 0 auto;
+      font-size: 14px;
+      text-align: left;
+      color: #fff; }
+    .hike-card .primary-info .flex-holder {
+      margin-top: 10px; }
+    .hike-card .primary-info .diff {
+      margin-right: 10px;
+      border-radius: 3px;
+      padding: 3px 5px 2px 5px;
+      background-color: #111; }
+    .hike-card .primary-info .rating {
+      margin-left: 10px;
+      background-color: #dcb;
+      border-radius: 3px;
+      flex: 0 0 auto;
+      padding: 3px 5px 2px 5px; }
+    .hike-card .primary-info .info-block {
+      border: 1px solid #dcb;
+      border-radius: 3px;
+      margin: 0 10px;
+      padding: 0 5px; }
   .hike-card .key-image {
     border: 2px dashed #bbb;
-    width: 225px;
     height: 150px; }
-  .hike-card .pad-15 {
-    padding: 15px; }
-
-.lower-line {
-  text-align: center;
-  padding-top: 5px; }
-  .lower-line .info-block {
-    margin-right: 10px;
-    border: 1px solid #776;
-    padding: 7px 5px 3px 5px; }
-  .lower-line h1 {
-    align-content: center;
-    color: #ccc; }
-  .lower-line p {
-    padding-top: 2px;
-    color: #ccc; }
 
 .fl-r-b-s {
   display: flex;
@@ -478,5 +514,10 @@ input, textarea {
       justify-content: space-between; }
       .expandable .filter-box .flex-holder .flex-edge {
         flex: 0 0 auto; }
+
+.flex-holder {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start; }
 
 /*# sourceMappingURL=maps/styles.css.map */

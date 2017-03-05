@@ -1,4 +1,4 @@
-<div class="nav-bar">
+<div class="nav-bar" color-change>
    <div class="left-nav">
       <img ui-sref="home" src="./../img/logo.png"/>
    </div>
@@ -6,9 +6,10 @@
       <ul>
          <li ui-sref="explore"><h6>Explore</h6></li>
          <li ui-sref="prepare"><h6>Prepare</h6></li>
-         <li><h6><a href="/auth">Login</a></h6></li>
-         <li ng-click="logout()"><h6>Logout</h6></li>
-         <li ui-sref="profile"><img src="../img/user-icon-100.png"></li>
+         <li ng-if="!user"><h6><a href="/auth">Login</a></h6></li>
+         <li ng-if="!user"><a href="/auth"><img src="../img/user-icon-100-light.png"></a></li>
+         <li ng-if="user" ng-click="logout()"><h6>Logout</h6></li>
+         <li ng-if="user" ui-sref="profile"><img ng-src="{{user.userimage}}"></li>
       </ul>
    </nav>
 </div>

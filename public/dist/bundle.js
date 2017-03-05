@@ -14,10 +14,8 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate']).config(function ($urlRoute
       controller: 'exploreCtrl'
    }).state('prepare', {
       url: '/prepare',
-      templateUrl: './views/prepare.html'
-   }).state('shop', {
-      url: '/shop',
-      templateUrl: './views/shop.html'
+      templateUrl: './views/prepare.html',
+      controller: 'prepareCtrl'
    }).state('profile', {
       url: '/profile',
       templateUrl: './views/profile.html',
@@ -28,9 +26,11 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate']).config(function ($urlRoute
                console.log('response: data', response.data);
                if (!response.data) {
                   $state.go('home');
+               } else {
+                  return response.data;
                }
-               return response.data;
             }).catch(function (err) {
+               console.log("Error on profile resolve: ", err);
                $state.go('home');
             });
          }
@@ -90,7 +90,19 @@ angular.module("hikeApp").controller('hikeDetailsCtrl', function ($scope, hikeDe
 angular.module('hikeApp').controller('homeCtrl', function ($scope) {});
 'use strict';
 
-angular.module('hikeApp').controller('mainCtrl', function ($scope, mainService) {
+angular.module('hikeApp').controller('mainCtrl', function ($scope, mainService, authService) {
+
+   $scope.getUserData = function () {
+      authService.getCurrentUser().then(function (response) {
+         if (response.data) {
+            $scope.user = response.data;
+         }
+      }).catch(function (err) {
+         console.log(err);
+      });
+   };
+
+   $scope.getUserData();
 
    $scope.createHike = function (hike) {
       mainService.createHike(hike).then(function (response) {
@@ -124,13 +136,18 @@ angular.module('hikeApp').controller('navCtrl', function ($scope, authService, $
 
    $scope.logout = function () {
       authService.logout().then(function (response) {
-         $state.go('home');
+         delete $scope.user;
+         $state.go('home', {}, { reload: true });
       });
    };
 });
 'use strict';
 
+angular.module('hikeApp').controller('prepareCtrl', function ($scope) {});
+'use strict';
+
 angular.module('hikeApp').controller('profileCtrl', function ($scope, user, authService) {
+
    $scope.user = user;
 
    $scope.updateUser = function (user) {
@@ -156,14 +173,60 @@ angular.module('hikeApp').controller('weatherCtrl', function ($scope, weatherSer
 angular.module('hikeApp').directive('colorChange', function () {
    return {
       restrict: 'A',
-      replace: true,
       link: function link(scope, elem, attrs) {
-         elem.bind('click', function () {
-            console.log(scope.$state);
+
+         $(elem).bind("click", function () {
+            setTimeout(function () {
+               var pageString = decodeURIComponent(window.location.hash);
+               var pageName = pageString.split('/');
+               switch (pageName[1]) {
+                  case '':
+                     $(".nav-bar").css("background-color", '#212');
+                     break;
+                  case 'explore':
+                     $(".nav-bar").css("background-color", '#471311'); //#3D0B09
+                     break;
+                  case 'prepare':
+                     $(".nav-bar").css("background-color", '#042735');
+                     break;
+                  case 'hikeDetails':
+                     $(".nav-bar").css("background-color", 'pink');
+                     break;
+                  default:
+                     $(".nav-bar").css("background-color", '#212');
+                     break;
+               }
+            }, 100);
          });
-         elem.bind('mouseover', function () {
-            elem.css('cursor', ' ');
-         });
+      }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('difficultyColor', function () {
+   return {
+      restrict: 'A',
+      link: function link(scope, elem, attrs) {
+         var diff = scope.hike.diffText;
+         var bgColor;
+         switch (diff) {
+            case 'easy':
+               bgColor = '#28965A';
+               break;
+            case 'medium':
+               bgColor = '#F18231';
+               break;
+            case 'challenging':
+               bgColor = '#892E33';
+               break;
+            case 'strenuous':
+               bgColor = '#311126';
+               break;
+            default:
+               bgColor = 'black';
+               break;
+         }
+         $(elem).css('background-color', bgColor);
       }
    };
 });

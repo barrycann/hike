@@ -2,7 +2,7 @@ angular.module('hikeApp')
 .controller('exploreCtrl', function($scope, exploreService){
 
    $scope.hikeFilter = {};
-
+   
    $scope.getHikes = function(){
       exploreService.getHikes()
       .then(function(data){

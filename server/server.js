@@ -43,11 +43,6 @@ app.get('/auth/callback', passport.authenticate('auth0',
   }
 ));
 
-app.get('/api/logout', function(req, res, next) {
-  req.logout();
-  return res.status(200).send('logged out');
-});
-
 var isAuthed = function(req, res, next){
   if(!req.isAuthenticated()){
      return res.status(401).send("Not authenticated");
@@ -80,7 +75,12 @@ app.get('/api/reviews/:hikeid', reviewCtrl.getReviewsByHike);
 //=== User Endpoints ========================================
 app.get('/api/me', userCtrl.me);
 app.put('/api/user/current', isAuthed, userCtrl.updateCurrent);
-
+app.get('/api/logout', function(req, res) {
+  //req.logout();
+  req.session.destroy(function(err){
+    return res.status(200).send('logged out');
+  })
+});
 
 //=== Listen ================================================
 app.listen(port, () => {
