@@ -62,6 +62,7 @@ app.post('/api/hikes', serverCtrl.createHike);
 app.get('/api/hikes', serverCtrl.getAllHikes);
 app.get('/api/hikes/:name', serverCtrl.getOneHike);
 app.delete('/api/hikes/:name', serverCtrl.deleteHike);
+app.get('/api/hikes/:len1/:len2/:feat', serverCtrl.getPerfectHike);
 
 app.post('/api/users', serverCtrl.createUser);
 app.get('/api/users', serverCtrl.getAllUsers);

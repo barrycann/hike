@@ -44,6 +44,22 @@ module.exports = {
          res.status(200).send(results);
       })
    },
+   getPerfectHike: function(req, res){
+      db.get_perfect_hike([
+         req.params.len1,
+         req.params.len2,
+         req.params.feat,
+         ], function(err, results){
+         if(err){
+            console.error(err);
+            return res.send(err);
+         }
+         // if(!results.length){
+         //    return res.status(400).send("No hikes found.");
+         // }
+         return res.status(200).send(results);
+      })
+   },
    deleteHike: function(req, res){
       db.delete_hike([req.params.name], function(err, results){
          if(err){

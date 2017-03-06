@@ -17,25 +17,25 @@ angular.module('hikeApp')
    }
    $scope.getLocalCoords();
 
-   $scope.setLength = function(param){
-      $scope.hikeLength = param;
-      if(param == 2){
+   $scope.setLength = function(len1, len2){
+      $scope.hikeLength1 = len1;
+      $scope.hikeLength2 = len2;
+
+      if(len2 == 2){
          $scope.box1Class = "selected";
          $scope.box2Class = "little-box";
          $scope.box3Class = "little-box";
       }
-      if(param == 5){
+      if(len2 == 5){
          $scope.box1Class = "little-box";
          $scope.box2Class = "selected";
          $scope.box3Class = "little-box";
       }
-      if(param == 6){
+      if(len2 == 15){
          $scope.box1Class = "little-box";
          $scope.box2Class = "little-box";
          $scope.box3Class = "selected";
       }
-      console.log("Length: ", $scope.hikeLength);
-      console.log("Feature: ", $scope.hikeFeature);
    }
 
    $scope.setFeature = function(param){
@@ -55,20 +55,17 @@ angular.module('hikeApp')
          $scope.box5Class = "little-box";
          $scope.box6Class = "selected";
       }
-      console.log("Length: ", $scope.hikeLength);
-      console.log("Feature: ", $scope.hikeFeature);
    }
 
-   $scope.getHike = function(length, feature, lat, lon){
-      if(length === undefined || feature === undefined){
-         alert("You must select a hike and a feature!");
+   $scope.getPerfectHike = function(len1, len2, feat, lat, lon){
+      if(len1 === undefined || feat === undefined){
+         alert("You must select a hike length and a feature!");
       } else {
-         //mainService.getPerfectHike(length, feature)
-         //.then(function(response){
-            console.log("Getting hike with length, " + length + ", and feature, " + feature + ".");
-            console.log("Nearest to the coordinates of Latitude: " + lat + ", and Longitude " + lon + ".")
-         //});
+         homeService.getPerfectHike(len1, len2, feat, lat, lon)
+         .then(function(response){
+            console.log(response);
+            return response;
+         });
       }
    }
-
 });

@@ -28,15 +28,15 @@
          <div class="q-box">
             <h2><span class="num">(1)</span>  Select Your Hike Length</h2>
             <div class="little-box-holder">
-               <div class="little-box" ng-model="length1" ng-class="box1Class" ng-click="setLength(2)">
+               <div class="little-box" ng-model="length1" ng-class="box1Class" ng-click="setLength(0.0, 2.0)">
                   <img src="./../img/logo/hike-logo-short.png"/>
                   <h6>0-2 Miles</h6>
                </div>
-               <div class="little-box" ng-model="length2" ng-class="box2Class" ng-click="setLength(5)">
+               <div class="little-box" ng-model="length2" ng-class="box2Class" ng-click="setLength(2.0, 5.0)">
                   <img src="./../img/logo/hike-logo-medium.png"/>
                   <h6>2-5 Miles</h6>
                </div>
-               <div class="little-box" ng-model="length3" ng-class="box3Class" ng-click="setLength(6)">
+               <div class="little-box" ng-model="length3" ng-class="box3Class" ng-click="setLength(5.0, 15.0)">
                   <img src="./../img/logo/hike-logo-long.png"/>
                   <h6>5+ Miles</h6>
                </div>
@@ -61,7 +61,7 @@
          </div>
       </div>
       <div class="button-area">
-         <button class="main-button" ng-click="getHike(hikeLength, hikeFeature, localLat, localLon)">Let's Go!</button>
+         <button class="main-button" ng-click="getPerfectHike(hikeLength1, hikeLength2, hikeFeature, localLat, localLon)">Let's Go!</button>
       </div>
       <div>
          <img class="rocks" src="./../img/rocks.jpg"/>

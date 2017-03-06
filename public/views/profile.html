@@ -1,4 +1,9 @@
 <div class="main-container static-bg profile-bg">
+   <h1>Welcome, {{user.username}}</h1>
+   <div class="quote-box">
+      <p class="quote">"Live in each season as it passes; breathe the air, drink the drink, taste the fruit, and resign yourself to the influence of the earth."</p>
+      <p class="source">Henry David Thoreau</p>
+   </div>
    <div class="profile-box">
       <h3>Welcome, {{user.username}}</h3>
       <p>Current Picture:</p>
@@ -14,7 +19,5 @@
    <div class="full-width-box" ng-if="user.isadmin">
       <h4 class="dark-text centered">Admin Controls</h4>
       <create-hike></create-hike>
-      <!--<review-form-dir></review-form-dir>-->
    </div>
-   
 </div>

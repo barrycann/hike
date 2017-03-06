@@ -7,7 +7,7 @@ angular.module('hikeApp')
          var reviewArr =  response.data;
          for(var i=0;i<reviewArr.length;i++){
             var diff = reviewArr[i].difficulty;
-            var urlArr = ['./img/rating1.png','./img/rating2.png','./img/rating3.png','./img/rating4.png','./img/rating5.png','./img/rating6.png','./img/rating7.png','./img/rating8.png','./img/rating9.png','./img/rating10.png'];
+            var urlArr = ['./img/ratings/ratings/rating1.png','./img/ratings/rating2.png','./img/ratings/rating3.png','./img/ratings/rating4.png','./img/ratings/rating5.png','./img/ratings/rating6.png','./img/ratings/rating7.png','./img/ratings/rating8.png','./img/ratings/rating9.png','./img/ratings/rating10.png'];
             
             switch(diff){
                case 1:

@@ -10,7 +10,7 @@ angular.module('hikeApp')
                var pageName = pageString.split('/');
                switch(pageName[1]){
                   case 'explore':
-                     $(".nav-bar").css("background-color", '#471311');  //#3D0B09
+                     $(".nav-bar").css("background-color", '#471311');
                      break;
                   case 'hikeDetails':
                      $(".nav-bar").css("background-color", '#212');

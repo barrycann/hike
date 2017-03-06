@@ -125,7 +125,8 @@ input, textarea {
   margin: 5px; }
 
 a:link, a:visited, a:hover, a:active {
-  color: #eee; }
+  color: #eee;
+  text-decoration: none; }
 
 @-webkit-keyframes fadeIn {
   from {
@@ -220,15 +221,9 @@ a:link, a:visited, a:hover, a:active {
         vertical-align: middle; }
 
 .main-container {
-  margin-top: 80px;
-  padding: 30px 15%;
+  margin: 80px 0 0 0;
+  padding: 20px 15% 30px 15%;
   min-height: 100vh; }
-
-.static-bg {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
 
 .explore-bg {
   background: url("../img/bg/explore-bg.jpg") no-repeat center center fixed; }
@@ -238,6 +233,12 @@ a:link, a:visited, a:hover, a:active {
 
 .hike-bg {
   background: url("../img/bg/hike-bg.jpg") no-repeat center center fixed; }
+
+.static-bg {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 .hero {
   height: 1080px;
@@ -465,17 +466,17 @@ a:link, a:visited, a:hover, a:active {
     flex: 0 0 85%;
     height: 600px;
     background-color: #599; }
-    .hike-billboard .hike-photo-box .hike-title {
-      padding: 10px 0 0 10px; }
+    .hike-billboard .hike-photo-box .fit-cover {
+      object-fit: cover; }
     .hike-billboard .hike-photo-box .hike-photos {
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden; }
       .hike-billboard .hike-photo-box .hike-photos img {
-        flex-shrink: 0;
-        min-width: 100%;
-        min-height: 100%; }
+        height: 600px; }
+      .hike-billboard .hike-photo-box .hike-photos img[class] {
+        width: 100%; }
   .hike-billboard .hike-sideinfo {
     flex: 0 0 15%;
     height: 600px;
@@ -528,17 +529,6 @@ a:link, a:visited, a:hover, a:active {
     .hike-lower-info .summary p {
       padding-top: 10px;
       text-align: justify; }
-
-.trnspt-grad {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
-  /* IE6-9 */ }
 
 .outer-review-box {
   width: 100%; }
