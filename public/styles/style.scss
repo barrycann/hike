@@ -463,6 +463,8 @@ a:link, a:visited, a:hover, a:active {
    align-items: flex-start;
    width: 100%;
    height: 600px;
+   margin-top: 15px;
+   border: 1px solid #eee;
 
    .hike-photo-box {
       flex: 0 0 85%;
@@ -546,9 +548,12 @@ a:link, a:visited, a:hover, a:active {
 
    .summary {
       flex: 1 1 auto;
-      padding: 5px 0 0 30px;
+      padding: 0 30px;
       height: 300px;
       background: rgba(255, 255, 255, 0.3);
+      h4 {
+         margin-top: 15px;
+      }
       p {
          padding-top: 10px;
          text-align: justify;
@@ -556,8 +561,25 @@ a:link, a:visited, a:hover, a:active {
    }
 }
 
+.reviews {
+   margin-top: 30px;
+
+   .login-message {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      padding: 15px 0;
+      border-radius: 3px;
+      background-color: #aaa;
+   }
+}
+
 .outer-review-box {
    width: 100%;
+   .full-width-box {
+      padding: 15px 0;
+      text-align: center;
+   }
 }
 
 .review-userimage {
@@ -622,7 +644,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .expandable {
-   display: flex;
+   display: none;
    width: 100%;
    .filter-box{
       margin: 10px 2%;
@@ -640,6 +662,14 @@ a:link, a:visited, a:hover, a:active {
             flex: 0 0 auto;
          }
       }
+   }
+   .review-image-box{
+      flex: 0 0 15%;
+      padding: 15px;
+   }
+   .review-text-box {
+      flex: 0 0 auto;
+      padding: 15px;
    }
 }
 
@@ -699,5 +729,69 @@ a:link, a:visited, a:hover, a:active {
    a:link, a:visited, a:hover, a:active {
    color: #874;
    text-decoration: none;
+   }
 }
+
+.floating-hike-box {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0, 0.7);
+   z-index: 10;
+   .success-box, .fail-box{
+      position: fixed;
+      top: -40%;
+      left: 30%;
+      width: 40%;
+      height: 50%;
+      margin: 40% auto;
+      z-index: 20;
+      text-align: center;
+      border: 1px dashed #BE453D;
+      color: #eee;
+      background-color: $menuColorPurple;
+      h1 {
+         padding: 30px 0;
+      }
+      .hike-info{
+         width: 250px;
+         margin: 0 auto;
+         padding: 15px;
+         border: 1px solid #6E202C;
+         h4 {
+            padding-bottom: 7px;
+         }
+      }
+      img {
+         width: 200px;
+      }
+   }
+}
+.bigger-text{
+   font: 44px/48px 'Crete Round', sans-serif;
+   font-weight: 400;
+   letter-spacing: 1px;
+   margin: 10px 0 10px 0;
+}
+
+.light-text {
+   color: #eee;
+}
+
+.bg-white {
+   background: rgba(255, 255, 255, 0.3)
+}
+
+.centered-transparent{
+   width: 100%;
+   margin: 30px auto;
+   .quote-box{
+      margin: 20px auto;
+   }
+}
+
+.extra-padding{
+      padding: 5px 20px;
 }

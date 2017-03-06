@@ -1,5 +1,4 @@
 <div class="outer-review-box">
-   <h3>REVIEWS</h3>
    <div class="white-box round-corners fl-r-b-s" ng-repeat="review in reviews">
       <div class="review-image-box">
          <img class="review-userimage" ng-src='{{review.userimage}}'/>
@@ -8,11 +7,13 @@
       <div class="review-text-box">
          <div class="header">
             <h4>&quot{{review.reviewtitle}}&quot</h4>
-            <p>Timestamp: {{review.reviewtime}}</p>
+            <p>{{review.reviewtime}}</p>
          </div>
-         <div>
+         <div class="extra-padding">
+            <br>
             <img ng-src='{{review.ratingurl}}'/>
-            <p>Text: {{review.reviewtext}}</p>
+            <br>
+            <p>{{review.reviewtext}}</p>
          </div>
       </div>
    </div>

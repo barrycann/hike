@@ -79,6 +79,20 @@ angular.module("hikeApp").controller('hikeDetailsCtrl', function ($scope, hikeDe
    };
 
    $scope.getHikeDetails();
+
+   $scope.createReview = function (review) {
+      var currentTime = new Date();
+      review.reviewtime = currentTime;
+      review.hikeid = $scope.hikeDetail.hikeid;
+      review.userid = $scope.user.userid;
+      hikeDetailsService.createReview(review).then(function (response) {
+         if (response) {
+            alert("Review submitted.");
+         } else {
+            alert("No review submitted");
+         }
+      });
+   };
 });
 'use strict';
 
@@ -144,8 +158,7 @@ angular.module('hikeApp').controller('homeCtrl', function ($scope, homeService) 
          alert("You must select a hike length and a feature!");
       } else {
          homeService.getPerfectHike(len1, len2, feat, lat, lon).then(function (response) {
-            console.log(response);
-            return response;
+            $scope.foundHike = response[0];
          });
       }
    };
@@ -171,18 +184,6 @@ angular.module('hikeApp').controller('mainCtrl', function ($scope, mainService, 
             alert("Hike submitted.");
          } else {
             alert("Nothing happened");
-         }
-      });
-   };
-
-   $scope.createReview = function (review) {
-      var currentTime = new Date();
-      review.reviewtime = currentTime;
-      mainService.createReview(review).then(function (response) {
-         if (response) {
-            alert("Review submitted.");
-         } else {
-            alert("No review submitted");
          }
       });
    };
@@ -270,7 +271,13 @@ angular.module('hikeApp').directive('difficultyColor', function () {
    return {
       restrict: 'A',
       link: function link(scope, elem, attrs) {
-         var diff = scope.hike.diffText;
+         var diff;
+         if (scope.hike.diffText) {
+            diff = scope.hike.diffText;
+         }
+         if (scope.hikeDetail) {
+            diff = scope.hikeDetail.diffText;
+         }
          var bgColor;
          switch (diff) {
             case 'easy':
@@ -520,22 +527,57 @@ angular.module('hikeApp').service('exploreService', function ($http) {
 
 angular.module("hikeApp").service('hikeDetailsService', function ($http, $stateParams) {
 
-   var getDifficulty = function getDifficulty(diff) {};
-
    this.getHikeDetails = function () {
       return $http.get('/api/hikes/' + $stateParams.hikeName).then(function (response) {
-         return response.data[0];
+         var theHike = response.data[0];
+
+         var diff = theHike.difficulty;
+         var urlArr = ['./img/ratings/rating1.png', './img/ratings/rating2.png', './img/ratings/rating3.png', './img/ratings/rating4.png', './img/ratings/rating5.png', './img/ratings/rating6.png', './img/ratings/rating7.png', './img/ratings/rating8.png', './img/ratings/rating9.png', './img/ratings/rating10.png'];
+
+         theHike.ratingurl = urlArr[theHike.rating - 1];
+
+         switch (diff) {
+            case 1:
+            case 2:
+            case 3:
+               theHike.diffText = 'easy';
+               break;
+            case 4:
+            case 5:
+            case 6:
+               theHike.diffText = 'medium';
+               break;
+            case 7:
+            case 8:
+               theHike.diffText = 'challenging';
+               break;
+            case 9:
+            case 10:
+               theHike.diffText = 'strenuous';
+               break;
+            default:
+               theHike.diffText = 'None Assigned';
+         }
+         return theHike;
       });
    };
 
    this.getHikeReviews = function (param) {
       return $http.get('/api/reviews/' + param).then(function (response) {
          var reviewArr = response.data;
-         var urlArr = ['./img/rating1.png', './img/rating2.png', './img/rating3.png', './img/rating4.png', './img/rating5.png', './img/rating6.png', './img/rating7.png', './img/rating8.png', './img/rating9.png', './img/rating10.png'];
+         var urlArr = ['./img/ratings/rating1.png', './img/ratings/rating2.png', './img/ratings/rating3.png', './img/ratings/rating4.png', './img/ratings/rating5.png', './img/ratings/rating6.png', './img/ratings/rating7.png', './img/ratings/rating8.png', './img/ratings/rating9.png', './img/ratings/rating10.png'];
          for (var i = 0; i < reviewArr.length; i++) {
+            console.log(reviewArr[i].reviewrating);
             reviewArr[i].ratingurl = urlArr[reviewArr[i].reviewrating - 1];
          }
+         console.log(reviewArr);
          return reviewArr;
+      });
+   };
+
+   this.createReview = function (review) {
+      return $http.post('/api/reviews', review).then(function (response) {
+         return response;
       });
    };
 });
@@ -566,9 +608,7 @@ angular.module('hikeApp').service('homeService', function ($http) {
 
             var distance = calculateDistance(hikeLat, hikeLon, lat, lon);
             theHikes[i].distance = Math.round(distance * 0.000621371);
-            console.log(theHikes[i]);
          }
-
          return theHikes;
       });
    };
@@ -585,10 +625,6 @@ angular.module('hikeApp').service('mainService', function ($http, $q) {
 
    this.createHike = function (hike) {
       return $http.post('/api/hikes', hike);
-   };
-
-   this.createReview = function (review) {
-      return $http.post('/api/reviews', review);
    };
 
    this.deleteHike = function (name) {

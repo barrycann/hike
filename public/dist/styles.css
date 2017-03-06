@@ -461,7 +461,9 @@ a:link, a:visited, a:hover, a:active {
   flex-flow: row nowrap;
   align-items: flex-start;
   width: 100%;
-  height: 600px; }
+  height: 600px;
+  margin-top: 15px;
+  border: 1px solid #eee; }
   .hike-billboard .hike-photo-box {
     flex: 0 0 85%;
     height: 600px;
@@ -523,15 +525,30 @@ a:link, a:visited, a:hover, a:active {
         width: 90px; }
   .hike-lower-info .summary {
     flex: 1 1 auto;
-    padding: 5px 0 0 30px;
+    padding: 0 30px;
     height: 300px;
     background: rgba(255, 255, 255, 0.3); }
+    .hike-lower-info .summary h4 {
+      margin-top: 15px; }
     .hike-lower-info .summary p {
       padding-top: 10px;
       text-align: justify; }
 
+.reviews {
+  margin-top: 30px; }
+  .reviews .login-message {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    padding: 15px 0;
+    border-radius: 3px;
+    background-color: #aaa; }
+
 .outer-review-box {
   width: 100%; }
+  .outer-review-box .full-width-box {
+    padding: 15px 0;
+    text-align: center; }
 
 .review-userimage {
   width: 100px;
@@ -581,7 +598,7 @@ a:link, a:visited, a:hover, a:active {
   text-align: center; }
 
 .expandable {
-  display: flex;
+  display: none;
   width: 100%; }
   .expandable .filter-box {
     margin: 10px 2%;
@@ -597,6 +614,12 @@ a:link, a:visited, a:hover, a:active {
       justify-content: space-between; }
       .expandable .filter-box .flex-holder .flex-edge {
         flex: 0 0 auto; }
+  .expandable .review-image-box {
+    flex: 0 0 15%;
+    padding: 15px; }
+  .expandable .review-text-box {
+    flex: 0 0 auto;
+    padding: 15px; }
 
 .flex-holder {
   display: flex;
@@ -646,5 +669,58 @@ a:link, a:visited, a:hover, a:active {
   .footer a:link, .footer a:visited, .footer a:hover, .footer a:active {
     color: #874;
     text-decoration: none; }
+
+.floating-hike-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10; }
+  .floating-hike-box .success-box, .floating-hike-box .fail-box {
+    position: fixed;
+    top: -40%;
+    left: 30%;
+    width: 40%;
+    height: 50%;
+    margin: 40% auto;
+    z-index: 20;
+    text-align: center;
+    border: 1px dashed #BE453D;
+    color: #eee;
+    background-color: #1E0E1D; }
+    .floating-hike-box .success-box h1, .floating-hike-box .fail-box h1 {
+      padding: 30px 0; }
+    .floating-hike-box .success-box .hike-info, .floating-hike-box .fail-box .hike-info {
+      width: 250px;
+      margin: 0 auto;
+      padding: 15px;
+      border: 1px solid #6E202C; }
+      .floating-hike-box .success-box .hike-info h4, .floating-hike-box .fail-box .hike-info h4 {
+        padding-bottom: 7px; }
+    .floating-hike-box .success-box img, .floating-hike-box .fail-box img {
+      width: 200px; }
+
+.bigger-text {
+  font: 44px/48px 'Crete Round', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 10px 0 10px 0; }
+
+.light-text {
+  color: #eee; }
+
+.bg-white {
+  background: rgba(255, 255, 255, 0.3); }
+
+.centered-transparent {
+  width: 100%;
+  margin: 30px auto; }
+  .centered-transparent .quote-box {
+    margin: 20px auto; }
+
+.extra-padding {
+  padding: 5px 20px; }
 
 /*# sourceMappingURL=maps/styles.css.map */

@@ -1,17 +1,14 @@
 <div class="main-container static-bg profile-bg">
-   <h1>Welcome, {{user.username}}</h1>
-   <div class="quote-box">
-      <p class="quote">"Live in each season as it passes; breathe the air, drink the drink, taste the fruit, and resign yourself to the influence of the earth."</p>
-      <p class="source">Henry David Thoreau</p>
+   <h1 class="bigger-text light-text">Welcome, {{user.username}}</h1>
+   <div class="centered-transparent">
+      <div class="quote-box">
+         <p class="quote">"Live in each season as it passes; breathe the air, drink the drink, taste the fruit, and resign yourself to the influence of the earth."</p>
+         <p class="source">Henry David Thoreau</p>
+      </div>
    </div>
    <div class="profile-box">
-      <h3>Welcome, {{user.username}}</h3>
-      <p>Current Picture:</p>
       <img ng-src="{{user.userimage}}"/><br>
-      <input type="file" name="pic" accept="image/*" ng-model="user.userimage">
-      <input type="submit">
    </div>
-   
    <input type="text" ng-model="user.username">
    <input type="text" ng-model="user.useremail">
    <textarea rows="4" cols="40" ng-model="user.userbio"></textarea>

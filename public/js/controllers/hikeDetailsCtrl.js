@@ -17,4 +17,19 @@ angular.module("hikeApp")
    }
 
    $scope.getHikeDetails();
+
+   $scope.createReview = function(review){
+      var currentTime = new Date();
+      review.reviewtime = currentTime;
+      review.hikeid = $scope.hikeDetail.hikeid;
+      review.userid = $scope.user.userid;
+      hikeDetailsService.createReview(review)
+      .then(function(response){
+         if(response){
+            alert("Review submitted.")
+         } else {
+            alert("No review submitted");
+         }
+      });
+   }
 });

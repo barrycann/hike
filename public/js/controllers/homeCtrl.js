@@ -63,8 +63,7 @@ angular.module('hikeApp')
       } else {
          homeService.getPerfectHike(len1, len2, feat, lat, lon)
          .then(function(response){
-            console.log(response);
-            return response;
+            $scope.foundHike = response[0];
          });
       }
    }

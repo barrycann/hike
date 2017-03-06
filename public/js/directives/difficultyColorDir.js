@@ -3,7 +3,13 @@ angular.module('hikeApp')
    return {
       restrict: 'A',
       link: function(scope, elem, attrs){ 
-         var diff = scope.hike.diffText;
+         var diff;
+         if(scope.hike.diffText){
+            diff = scope.hike.diffText;
+         }
+         if(scope.hikeDetail){
+            diff = scope.hikeDetail.diffText;
+         }
          var bgColor;
          switch(diff){
             case 'easy':

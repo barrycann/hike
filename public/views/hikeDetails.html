@@ -1,7 +1,7 @@
 <div class="main-container hike-bg static-bg">
    <div>
-      <h1>{{hikeDetail.name}}</h1>
-      <h5>&quot{{hikeDetail.nickname}}&quot</h5>
+      <h1 class="bigger-text light-text">{{hikeDetail.name}}</h1>
+      <h4 class="light-text">&quot{{hikeDetail.nickname}}&quot</h4>
    </div>
    <div class="hike-billboard">
       <div class="hike-photo-box">
@@ -10,8 +10,8 @@
          </div>
       </div>
       <div class="hike-sideinfo">
-         <div class="info-block">
-            <h1>{{hikeDetail.difficulty}}</h1>
+         <div class="info-block mid-caps bg-white diff">
+            {{hikeDetail.diffText}}
          </div>
          <div class="info-block">
             <h1>{{hikeDetail.mileslong}}</h1>
@@ -23,7 +23,7 @@
          </div>
          <div class="info-block">
             <p>USER RATING</p>
-            <img ng-src="{{hikeDetail.ratingurl}}/>
+            <img ng-src="{{hikeDetail.ratingurl}}"/>
          </div>
          <div class="info-block">
             <p>MAP GOES HERE</p>
@@ -43,9 +43,9 @@
          <p>{{hikeDetail.summary}}</p>
       </div>
    </div>
-   <div>
-      <h4>Reviews</h4>
-      <div class="centered" ng-if="!user">
+   <div class="reviews">
+      <h4>Reviews for {{hikeDetail.name}}</h4>
+      <div class="login-message" ng-if="!user">
          <h4><a href="/auth">Login</a> to leave a review.</h4>
       </div>
       <review-form-dir ng-if="user"></review-form-dir>

@@ -68,4 +68,21 @@
       </div>
    </div>
 </div>
+<div class="floating-hike-box" ng-if="foundHike">
+   <div class="success-box" ng-if="foundHike.name">
+      <h1>Hike Found!</h1>
+      <div class="hike-info">
+         <h4>{{foundHike.name}}</h4>
+         <img ng-src="{{foundHike.hikephoto}}"/>
+      </div>
+      <div class="button-area">
+         <button class="main-button" ui-sref="hikeDetails({hikeName:foundHike.name})">Take Me to the Details</button>
+      </div>
+   </div>
+   <div class="fail-box" ng-if="!foundHike.name">
+      <h1>Hmm... no luck.</h1>
+      <h4>Looks like no hikes exist with those requirements.</h4>
+      <button class="main-button" ui-sref-opts="{reload: true}">Let's Try Again</button>
+   </div>
+</div>
 
