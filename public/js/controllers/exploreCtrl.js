@@ -7,6 +7,7 @@ angular.module('hikeApp')
       exploreService.getHikes()
       .then(function(data){
          $scope.hikeData = data;
+         console.log($scope.hikeData);
       });
    }
 

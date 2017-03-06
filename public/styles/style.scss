@@ -2,35 +2,24 @@
 
 //==== COLORS ================================================
 $menuColorPurple: #1E0E1D;
-$easy-color: #499;
-$medium-diff: #994;
-$hard-diff: #949;
-
 $hike-stat: #ccc;
 $hike-stat-desc: #ccc;
-
-$dark-header: #29232D;
-
-$light-text: #ffe2e9;
-
 $heroHeight: 1080px;
 $layer: 10;
-$perspective: 1;
-$dashedBorderColor: #665;
 
 body {
-   font-family: 'Droid Serif', sans-serif;
+   font-family: 'Gentium Basic', sans-serif;
 }
 
 h1 {
-   font: 42px/50px 'Amatic SC', sans-serif;
-   font-weight: 500;
+   font: 36px/48px 'Crete Round', sans-serif;
+   font-weight: 400;
+   letter-spacing: 1px;
    margin: 10px 0 20px 0;
 }
 
 h2 {
-   font: 30px/30px 'Crete Round', sans-serif;
-   font-weight: 800;
+   font: 24px/32px 'Oswald', sans-serif;
    letter-spacing: 1px;
 }
 
@@ -40,7 +29,7 @@ h3 {
 }
 
 h4 {
-   font: 22px/28px 'Oswald', sans-serif;
+   font: 25px/28px 'Crete Round', sans-serif;
 }
 
 h5 {
@@ -54,7 +43,7 @@ h6 {
    font: 14px/18px 'Open Sans', sans-serif;
    text-transform: uppercase;
    font-weight: 300px;
-   letter-spacing: 0.15em;
+   letter-spacing: 2px;
    color: #eee;
 }
 
@@ -69,6 +58,10 @@ input, textarea {
    margin: 5px;
 }
 
+a:link, a:visited, a:hover, a:active {
+   color: #eee;
+}
+
 //=== ANIMATION =======================================
 
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -80,6 +73,15 @@ input, textarea {
    -webkit-animation: fadeIn 0.5s linear 9s 1 normal forwards;
    -moz-animation: fadeIn 0.5s linear 9s 1 normal forwards;
    animation: fadeIn 0.5s linear 9s 1 normal forwards;
+}
+
+.selected {
+   margin: 5px;
+   padding: 8px; 
+   flex: 0 0 30%;
+   background-color: #3d1c3b;
+   border: 2px solid orange;
+   border-radius: 6px;
 }
 
 .box{
@@ -211,75 +213,82 @@ input, textarea {
 }
 
 .layer-bg {
-   background-image: url('./../img/compressed/parallax1-min.png');
+   background-image: url('./../img/parallax/compressed/parallax1-min.png');
 }
 
 .layer-1 {
-   background-image: url('./../img/compressed/parallax2-min.png');
+   background-image: url('./../img/parallax/compressed/parallax2-min.png');
 }
 
 .layer-2 {
-   background-image: url('./../img/compressed/parallax3-min.png');
+   background-image: url('./../img/parallax/compressed/parallax3-min.png');
 }
 
 .layer-3 {
-   background-image: url('./../img/compressed/parallax4-min.png');
+   background-image: url('./../img/parallax/compressed/parallax4-min.png');
 }
 
 .layer-4 {
-   background-image: url('./../img/compressed/parallax5-min.png');
+   background-image: url('./../img/parallax/compressed/parallax5-min.png');
 }
 
 .layer-5 {
-   background-image: url('./../img/compressed/parallax6-min.png');
+   background-image: url('./../img/parallax/compressed/parallax6-min.png');
 }
 
 .layer-6 {
-   background-image: url('./../img/compressed/parallax7-min.png');
+   background-image: url('./../img/parallax/compressed/parallax7-min.png');
 }
 
 .layer-7 {
-   background-image: url('./../img/compressed/parallax8-min.png');
+   background-image: url('./../img/parallax/compressed/parallax8-min.png');
 }
 
 .front-content {
    background-color: $menuColorPurple;
+   padding-bottom: 50px;
    color: #eee;
-   height: 550px;
    .main-info {
       position: relative;
-      width: 60%;
-      height: 410px;
+      width: 75%;
       margin: 0 auto;
-      padding: 50px;
-      border: 1px solid #BE453D;
+      padding: 25px 15px 15px 15px;
+      border: 1px dashed #BE453D;
       text-align: center;
-      .home-info-header {
-         font: 42px/50px 'Amatic SC', sans-serif;
-         margin-bottom: 70px;
-         color: ghostwhite;
+      h1 {
+         color: #fff;
          .emphasis {
             color: salmon;
          }
       }
+      p {
+         margin-bottom: 20px;
+      }
       .questions {
-         margin: 10px auto;
-         
+         display: flex;
+         flex-flow: row wrap;
+         justify-content: space-around;
+         margin: 20px 0;
+
          .q-box {
+            flex: 0 0 auto;
             display: inline-block;
             padding: 20px;
          }
       }
       .rocks {
          position: absolute;
-         bottom: 10px;
-         left: 10px;
+         bottom: 20px;
+         left: 35px;
       }
    }
 }
 
 .little-box-holder {
    display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-around;
+   padding: 10px 0;
 }
 
 .little-box {
@@ -287,6 +296,31 @@ input, textarea {
    padding: 8px;
    border: 1px solid #6E202C; 
    flex: 0 0 30%;
+}
+
+.button-area {
+   margin: 25px 0;
+}
+
+.main-button {
+	-moz-box-shadow:inset 0px 35px 0px -14px #b54b3a;
+	-webkit-box-shadow:inset 0px 35px 0px -14px #b54b3a;
+	box-shadow:inset 0px 35px 0px -14px #b54b3a;
+	background-color:#a73f2d;
+	display:inline-block;
+	color:#ffffff;
+	font-family: "Crete Round", sans-serif;
+	font-size: 18px;
+	padding: 10px 50px;
+	text-decoration: none;
+}
+.main-button:hover {
+	background-color:#b34332;
+
+}
+.main-button:active {
+	position:relative;
+	top:2px;
 }
 
 .login-container {
@@ -337,6 +371,17 @@ input, textarea {
    .image-area {
       flex: 0 0 auto;
       padding: 15px;
+      .fit-cover {
+         object-fit: cover;
+      }
+      img {
+         height: 150px;
+         border: 1px solid #ccc;
+         background-color: #553;
+      }
+      img[class] {
+         width: 150px;
+      }
    }
 
    .primary-info {
@@ -426,7 +471,15 @@ input, textarea {
          padding: 10px 0 0 10px;
       }
       .hike-photos {
-
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         overflow: hidden;
+         img {
+            flex-shrink: 0;
+            min-width: 100%;
+            min-height: 100%;
+         }
       }
    }
    .hike-sideinfo {
@@ -584,7 +637,7 @@ input, textarea {
       vertical-align: middle;
       width: 30%;
       height: 130px;
-      border: 1px dashed $dashedBorderColor;
+      border: 1px dashed #665;
       .flex-holder {
          display: flex;
          flex-flow: row nowrap;
@@ -636,25 +689,8 @@ input, textarea {
    font-size: 14px;
 }
 
-.main-button {
-	-moz-box-shadow:inset 0px 35px 0px -14px #b54b3a;
-	-webkit-box-shadow:inset 0px 35px 0px -14px #b54b3a;
-	box-shadow:inset 0px 35px 0px -14px #b54b3a;
-	background-color:#a73f2d;
-	display:inline-block;
-	color:#ffffff;
-	font-family: "Crete Round", sans-serif;
-	font-size: 18px;
-	padding: 10px 50px;
-	text-decoration: none;
-}
-.main-button:hover {
-	background-color:#b34332;
-
-}
-.main-button:active {
-	position:relative;
-	top:2px;
+.text-up {
+   text-transform: uppercase;
 }
 
 .footer {
@@ -666,4 +702,8 @@ input, textarea {
       margin-top: 15px;
       color: #bcac9c;
    }
+   a:link, a:visited, a:hover, a:active {
+   color: #874;
+   text-decoration: none;
+}
 }

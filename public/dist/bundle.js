@@ -3,7 +3,6 @@
 angular.module('hikeApp', ['ui.router', 'ngAnimate']).config(function ($urlRouterProvider, $stateProvider) {
 
    $urlRouterProvider.otherwise('/');
-
    $stateProvider.state('home', {
       url: '/',
       templateUrl: './views/home.html',
@@ -12,10 +11,6 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate']).config(function ($urlRoute
       url: '/explore',
       templateUrl: './views/explore.html',
       controller: 'exploreCtrl'
-   }).state('prepare', {
-      url: '/prepare',
-      templateUrl: './views/prepare.html',
-      controller: 'prepareCtrl'
    }).state('profile', {
       url: '/profile',
       templateUrl: './views/profile.html',
@@ -46,129 +41,6 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate']).config(function ($urlRoute
 });
 'use strict';
 
-angular.module('hikeApp').controller('exploreCtrl', function ($scope, exploreService) {
-
-   $scope.hikeFilter = {};
-
-   $scope.getHikes = function () {
-      exploreService.getHikes().then(function (data) {
-         $scope.hikeData = data;
-      });
-   };
-
-   $scope.getFilteredHikes = function (filters) {
-      exploreService.getFilteredHikes(filters).then(function (data) {
-         $scope.hikeData = data;
-      });
-   };
-
-   $scope.difficultFilter = function () {};
-
-   $scope.getHikes();
-});
-"use strict";
-
-angular.module("hikeApp").controller('hikeDetailsCtrl', function ($scope, hikeDetailsService) {
-
-   $scope.getHikeDetails = function () {
-      hikeDetailsService.getHikeDetails().then(function (response) {
-         $scope.hikeDetail = response;
-         $scope.getHikeReviews();
-      });
-   };
-
-   $scope.getHikeReviews = function () {
-      hikeDetailsService.getHikeReviews($scope.hikeDetail.hikeid).then(function (response) {
-         $scope.reviews = response;
-      });
-   };
-
-   $scope.getHikeDetails();
-});
-'use strict';
-
-angular.module('hikeApp').controller('homeCtrl', function ($scope) {});
-'use strict';
-
-angular.module('hikeApp').controller('mainCtrl', function ($scope, mainService, authService) {
-
-   $scope.getUserData = function () {
-      authService.getCurrentUser().then(function (response) {
-         if (response.data) {
-            $scope.user = response.data;
-         }
-      }).catch(function (err) {
-         console.log(err);
-      });
-   };
-   $scope.getUserData();
-
-   $scope.createHike = function (hike) {
-      mainService.createHike(hike).then(function (response) {
-         if (response) {
-            alert("Hike submitted.");
-         } else {
-            alert("Nothing happened");
-         }
-      });
-   };
-
-   $scope.createReview = function (review) {
-      var currentTime = new Date();
-      review.reviewtime = currentTime;
-      mainService.createReview(review).then(function (response) {
-         if (response) {
-            alert("Review submitted.");
-         } else {
-            alert("No review submitted");
-         }
-      });
-   };
-
-   $scope.deleteHike = function () {
-      mainService.deleteHike($scope.hikeData.name).then(function (data) {});
-   };
-});
-'use strict';
-
-angular.module('hikeApp').controller('navCtrl', function ($scope, authService, $state) {
-
-   $scope.logout = function () {
-      authService.logout().then(function (response) {
-         delete $scope.user;
-         $state.go('home', {}, { reload: true });
-      });
-   };
-});
-'use strict';
-
-angular.module('hikeApp').controller('prepareCtrl', function ($scope) {});
-'use strict';
-
-angular.module('hikeApp').controller('profileCtrl', function ($scope, user, authService) {
-
-   $scope.user = user;
-
-   $scope.updateUser = function (user) {
-      authService.editUser(user).then(function (reponse) {
-         $scope.user = response.data;
-      });
-   };
-});
-'use strict';
-
-angular.module('hikeApp').controller('weatherCtrl', function ($scope, weatherService, $timeout) {
-
-   $scope.getWeather = function () {
-      weatherService.getWeather($scope.hikeInfo.latitude, $scope.hikeInfo.longitude).then(function (data) {
-         $scope.weatherInfo = data;
-      });
-   };
-
-   $timeout($scope.getWeather, 100);
-});
-'use strict';
-
 angular.module('hikeApp').directive('colorChange', function () {
    return {
       restrict: 'A',
@@ -179,17 +51,11 @@ angular.module('hikeApp').directive('colorChange', function () {
                var pageString = decodeURIComponent(window.location.hash);
                var pageName = pageString.split('/');
                switch (pageName[1]) {
-                  case '':
-                     $(".nav-bar").css("background-color", '#212');
-                     break;
                   case 'explore':
                      $(".nav-bar").css("background-color", '#471311'); //#3D0B09
                      break;
-                  case 'prepare':
-                     $(".nav-bar").css("background-color", '#042735');
-                     break;
                   case 'hikeDetails':
-                     $(".nav-bar").css("background-color", 'pink');
+                     $(".nav-bar").css("background-color", '#212');
                      break;
                   case 'profile':
                      $(".nav-bar").css("background-color", '#042735');
@@ -201,6 +67,14 @@ angular.module('hikeApp').directive('colorChange', function () {
             }, 100);
          });
       }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').directive('createHike', function () {
+   return {
+      restrict: 'E',
+      templateUrl: './views/hikeAdminTmpl.html'
    };
 });
 'use strict';
@@ -250,13 +124,19 @@ angular.module('hikeApp').directive('fadeInDir', function () {
    return {
       restrict: 'A',
       link: function link(scope, elem, attrs) {
-
+         elem.css('opacity', 0);
          $(document).bind('scroll', function () {
-            var startFade = 400;
-            var endFade = 700;
-            var pyo = pageYOffset;
+            var startFade;
+            var endFade;
+            if (window.innerHeight > 1100) {
+               startFade = 200;
+               endFade = 350;
+            } else {
+               startFade = 350;
+               endFade = 650;
+            }
             var fadeOpacity = (endFade - pageYOffset) / (endFade - startFade);
-
+            var pyo = pageYOffset;
             if (pyo < startFade) {
                elem.css('opacity', 0);
             } else if (pyo >= startFade && pyo <= endFade) {
@@ -276,8 +156,15 @@ angular.module('hikeApp').directive('fadeOutDir', function () {
       link: function link(scope, elem, attrs) {
 
          $(document).bind('scroll', function () {
-            var startFade = 100;
-            var endFade = 500;
+            var startFade;
+            var endFade;
+            if (window.innerHeight > 1100) {
+               startFade = 100;
+               endFade = 350;
+            } else {
+               startFade = 100;
+               endFade = 500;
+            }
             var pyo = pageYOffset;
             var fadeOpacity = (endFade - pageYOffset) / (endFade - startFade);
 
@@ -368,6 +255,197 @@ angular.module('hikeApp').directive('weatherDir', function () {
       templateUrl: './views/weatherTemplate.html',
       controller: 'weatherCtrl'
    };
+});
+'use strict';
+
+angular.module('hikeApp').controller('exploreCtrl', function ($scope, exploreService) {
+
+   $scope.hikeFilter = {};
+
+   $scope.getHikes = function () {
+      exploreService.getHikes().then(function (data) {
+         $scope.hikeData = data;
+         console.log($scope.hikeData);
+      });
+   };
+
+   $scope.getFilteredHikes = function (filters) {
+      exploreService.getFilteredHikes(filters).then(function (data) {
+         $scope.hikeData = data;
+      });
+   };
+
+   $scope.difficultFilter = function () {};
+
+   $scope.getHikes();
+});
+"use strict";
+
+angular.module("hikeApp").controller('hikeDetailsCtrl', function ($scope, hikeDetailsService) {
+
+   $scope.getHikeDetails = function () {
+      hikeDetailsService.getHikeDetails().then(function (response) {
+         $scope.hikeDetail = response;
+         $scope.getHikeReviews();
+      });
+   };
+
+   $scope.getHikeReviews = function () {
+      hikeDetailsService.getHikeReviews($scope.hikeDetail.hikeid).then(function (response) {
+         $scope.reviews = response;
+      });
+   };
+
+   $scope.getHikeDetails();
+});
+'use strict';
+
+angular.module('hikeApp').controller('homeCtrl', function ($scope, homeService) {
+
+   $scope.box1Class = "little-box";
+   $scope.box2Class = "little-box";
+   $scope.box3Class = "little-box";
+   $scope.box4Class = "little-box";
+   $scope.box5Class = "little-box";
+   $scope.box6Class = "little-box";
+
+   $scope.getLocalCoords = function () {
+      homeService.getLocalCoords().then(function (response) {
+         $scope.localLat = response.lat;
+         $scope.localLon = response.lon;
+      });
+   };
+   $scope.getLocalCoords();
+
+   $scope.setLength = function (param) {
+      $scope.hikeLength = param;
+      if (param == 2) {
+         $scope.box1Class = "selected";
+         $scope.box2Class = "little-box";
+         $scope.box3Class = "little-box";
+      }
+      if (param == 5) {
+         $scope.box1Class = "little-box";
+         $scope.box2Class = "selected";
+         $scope.box3Class = "little-box";
+      }
+      if (param == 6) {
+         $scope.box1Class = "little-box";
+         $scope.box2Class = "little-box";
+         $scope.box3Class = "selected";
+      }
+      console.log("Length: ", $scope.hikeLength);
+      console.log("Feature: ", $scope.hikeFeature);
+   };
+
+   $scope.setFeature = function (param) {
+      $scope.hikeFeature = param;
+      if (param == 'lake') {
+         $scope.box4Class = "selected";
+         $scope.box5Class = "little-box";
+         $scope.box6Class = "little-box";
+      }
+      if (param == 'waterfall') {
+         $scope.box4Class = "little-box";
+         $scope.box5Class = "selected";
+         $scope.box6Class = "little-box";
+      }
+      if (param == 'peak') {
+         $scope.box4Class = "little-box";
+         $scope.box5Class = "little-box";
+         $scope.box6Class = "selected";
+      }
+      console.log("Length: ", $scope.hikeLength);
+      console.log("Feature: ", $scope.hikeFeature);
+   };
+
+   $scope.getHike = function (length, feature, lat, lon) {
+      if (length === undefined || feature === undefined) {
+         alert("You must select a hike and a feature!");
+      } else {
+         //mainService.getPerfectHike(length, feature)
+         //.then(function(response){
+         console.log("Getting hike with length, " + length + ", and feature, " + feature + ".");
+         console.log("Nearest to the coordinates of Latitude: " + lat + ", and Longitude " + lon + ".");
+         //});
+      }
+   };
+});
+'use strict';
+
+angular.module('hikeApp').controller('mainCtrl', function ($scope, mainService, authService) {
+
+   $scope.getUserData = function () {
+      authService.getCurrentUser().then(function (response) {
+         if (response.data) {
+            $scope.user = response.data;
+         }
+      }).catch(function (err) {
+         console.log(err);
+      });
+   };
+   $scope.getUserData();
+
+   $scope.createHike = function (hike) {
+      mainService.createHike(hike).then(function (response) {
+         if (response) {
+            alert("Hike submitted.");
+         } else {
+            alert("Nothing happened");
+         }
+      });
+   };
+
+   $scope.createReview = function (review) {
+      var currentTime = new Date();
+      review.reviewtime = currentTime;
+      mainService.createReview(review).then(function (response) {
+         if (response) {
+            alert("Review submitted.");
+         } else {
+            alert("No review submitted");
+         }
+      });
+   };
+
+   $scope.deleteHike = function () {
+      mainService.deleteHike($scope.hikeData.name).then(function (data) {});
+   };
+});
+'use strict';
+
+angular.module('hikeApp').controller('navCtrl', function ($scope, authService, $state) {
+
+   $scope.logout = function () {
+      authService.logout().then(function (response) {
+         delete $scope.user;
+         $state.go('home', {}, { reload: true });
+      });
+   };
+});
+'use strict';
+
+angular.module('hikeApp').controller('profileCtrl', function ($scope, user, authService) {
+
+   $scope.user = user;
+
+   $scope.updateUser = function (user) {
+      authService.editUser(user).then(function (reponse) {
+         $scope.user = response.data;
+      });
+   };
+});
+'use strict';
+
+angular.module('hikeApp').controller('weatherCtrl', function ($scope, weatherService, $timeout) {
+
+   $scope.getWeather = function () {
+      weatherService.getWeather($scope.hikeInfo.latitude, $scope.hikeInfo.longitude).then(function (data) {
+         $scope.weatherInfo = data;
+      });
+   };
+
+   $timeout($scope.getWeather, 100);
 });
 'use strict';
 
@@ -462,6 +540,22 @@ angular.module("hikeApp").service('hikeDetailsService', function ($http, $stateP
             reviewArr[i].ratingurl = urlArr[reviewArr[i].reviewrating - 1];
          }
          return reviewArr;
+      });
+   };
+});
+'use strict';
+
+angular.module('hikeApp').service('homeService', function ($http) {
+
+   this.getPerfectHike = function (length, feature) {
+      return $http.get('/api/hikes?length=' + length + '&feature=' + feature).then(function (response) {
+         console.log(response);
+      });
+   };
+
+   this.getLocalCoords = function () {
+      return $http.get('http://ip-api.com/json').then(function (response) {
+         return response.data;
       });
    };
 });

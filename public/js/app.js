@@ -2,8 +2,6 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
 .config(function($urlRouterProvider, $stateProvider){
    
    $urlRouterProvider.otherwise('/');
-
-
    $stateProvider
       .state('home', {
          url: '/',
@@ -14,11 +12,6 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
          url: '/explore',
          templateUrl: './views/explore.html',
          controller: 'exploreCtrl'
-      })
-      .state('prepare', {
-         url: '/prepare',
-         templateUrl: './views/prepare.html',
-         controller: 'prepareCtrl'
       })
       .state('profile', {
          url: '/profile',

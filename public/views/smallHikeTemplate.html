@@ -1,10 +1,10 @@
 <div color-change class="hike-card fl-r-b-s box" ng-repeat="hike in hikeData | filter:filter" ui-sref="hikeDetails({hikeName:hike.name})">
    <div class="image-area">
-      <img class="key-image" src="./img/mount-olympus-1.jpg"/>
+      <img class="fit-cover"ng-src="{{hike.hikephoto}}"/>
    </div>
    <div class="primary-info">
       <div>
-         <h2>{{hike.name}}</h2>
+         <h4>{{hike.name}}</h4>
          <p class="mid-caps">&quot{{hike.nickname}}&quot</p>
          <div class="flex-holder">
             <div class="mid-caps diff" difficulty-color>{{hike.diffText}}</div>

@@ -18,58 +18,50 @@
    </div>
    <div class="fade-in">
       <p class="scroll-down">( Scroll Down )</p>
-      <img src="./../img/down-arrow-tree.png"/>
    </div>
 </div>
 <div class="front-content">
    <div class="main-info" fade-in-dir>
-       <p class="home-info-header">instahike helps you <span class="emphasis">find a nearby trail</span> fast</p>  <!-- and sends directions to your phone -->
-      <p>Just answer a few simple questions...</p>
+      <h1>The Perfect Hike. <span class="emphasis"> In Two Questions.</span></h1>
+      <p>Instahike searches through hundreds of local trails so you don't have to.<br>Just select a few trail preferences, and you'll be on your way.</p>
       <div class="questions">
          <div class="q-box">
-            <h2 class="number">1</h2>
-            <p>Select Your Hike Length</p>
+            <h2><span class="num">(1)</span>  Select Your Hike Length</h2>
             <div class="little-box-holder">
-               <div class="little-box">
-                  <p>Short and Sweet</p>
+               <div class="little-box" ng-model="length1" ng-class="box1Class" ng-click="setLength(2)">
+                  <img src="./../img/logo/hike-logo-short.png"/>
                   <h6>0-2 Miles</h6>
                </div>
-               <div class="little-box">
-                  <p>Mid-Length</p>
+               <div class="little-box" ng-model="length2" ng-class="box2Class" ng-click="setLength(5)">
+                  <img src="./../img/logo/hike-logo-medium.png"/>
                   <h6>2-5 Miles</h6>
                </div>
-               <div class="little-box">
-                  <p>Let's Conquer a Mountain</p>
+               <div class="little-box" ng-model="length3" ng-class="box3Class" ng-click="setLength(6)">
+                  <img src="./../img/logo/hike-logo-long.png"/>
                   <h6>5+ Miles</h6>
                </div>
             </div>
          </div>
          <div class="q-box">
-            <h2 class="number">2</h2>
-            <p>Select A Destination</p>
+            <h2><span class="num">(2)</span>  Select A Feature</h2>
             <div class="little-box-holder">
-               <div class="little-box">
-                  <p>Short and Sweet</p>
-                  <h6>Waterfall</h6>
-               </div>
-               <div class="little-box">
-                  <p>Mid-Length</p>
+               <div class="little-box" ng-model="feature1" ng-class="box4Class" ng-click="setFeature('lake')">
+                  <img src="./../img/logo/feature-logo-lake.png"/>
                   <h6>Lake</h6>
                </div>
-               <div class="little-box">
-                  <p>Let's Conquer a Mountain</p>
+               <div class="little-box" ng-model="feature2" ng-class="box5Class" ng-click="setFeature('waterfall')">
+                  <img src="./../img/logo/feature-logo-waterfall.png"/>
+                  <h6>Waterfall</h6>
+               </div>
+               <div class="little-box" ng-model="feature3" ng-class="box6Class" ng-click="setFeature('peak')">
+                  <img src="./../img/logo/feature-logo-peak.png"/>
                   <h6>Peak</h6>
                </div>
             </div>
-            <select>
-               <option>Waterfall</option>
-               <option>Lake</option>
-               <option>Peak</option>
-            </select>
          </div>
       </div>
-      <div>
-         <button class="main-button">Find My Suggested Hike!</button>
+      <div class="button-area">
+         <button class="main-button" ng-click="getHike(hikeLength, hikeFeature, localLat, localLon)">Let's Go!</button>
       </div>
       <div>
          <img class="rocks" src="./../img/rocks.jpg"/>

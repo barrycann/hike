@@ -4,15 +4,17 @@ var db = app.get('db');
 module.exports = {
    createHike: function(req, res){
       db.create_hike([
-         req.body.hikeName,
-         req.body.nickName,
-         req.body.hikeSummary,
-         req.body.milesLong,
-         req.body.elevationGain,
+         req.body.hikename,
+         req.body.nickname,
+         req.body.hikesummary,
+         req.body.mileslong,
+         req.body.elevationgain,
          req.body.difficulty,
          req.body.rating,
          req.body.latitude,
-         req.body.longitude
+         req.body.longitude,
+         req.body.feature,
+         req.body.photourl
       ], function(err, results){
          if(err){
             console.error(err);

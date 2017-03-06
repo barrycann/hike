@@ -1,8 +1,8 @@
-<div class="main-container">
+<div class="main-container static-bg hike-bg">
    <div class="hike-billboard">
       <div class="hike-photo-box">
          <div class="hike-photos">
-
+            <img class="" ng-src="{{hikeDetail.photo}}"/>
          </div>
          <div class="hike-title trnspt-grad">
             <h3>{{hikeDetail.name}}</h3>
@@ -44,28 +44,7 @@
       </div>
    </div>
    <div>
-   <div>
-      <div>
-         <h4>Write a Review</h4>
-      </div>
-      <div>
-         <div>
-            <div><input placeholder="Review Title"/></div>
-            <select>
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-               <option value="7">7</option>
-               <option value="8">8</option>
-               <option value="9">9</option>
-               <option value="10">10</option>
-            </select>
-         </div>
-      </div>
-   </div>
+      <review-form-dir></review-form-dir>
       <review-dir></review-dir>
    </div>
 </div>

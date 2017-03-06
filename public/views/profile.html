@@ -11,9 +11,10 @@
    <input type="text" ng-model="user.useremail">
    <textarea rows="4" cols="40" ng-model="user.userbio"></textarea>
    <button type="button" ng-click="updateUser(user)">UPDATE</button>
-   <div class="full-width-box">
+   <div class="full-width-box" ng-if="user.isadmin">
       <h4 class="dark-text centered">Admin Controls</h4>
-      <button class="main-button" ui-sref="hikeAdmin">Create a Hike</button>
+      <create-hike></create-hike>
+      <!--<review-form-dir></review-form-dir>-->
    </div>
    
 </div>

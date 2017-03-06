@@ -5,8 +5,15 @@ angular.module('hikeApp')
       link: function(scope, elem, attrs){
 
          $(document).bind('scroll', function(){
-            var startFade = 100;
-            var endFade = 500;
+            var startFade;
+            var endFade;
+            if(window.innerHeight > 1100){
+               startFade = 100;
+               endFade = 350;
+            } else {
+               startFade = 100;
+               endFade = 500;
+            }
             var pyo = pageYOffset;
             var fadeOpacity = (endFade-pageYOffset) / (endFade - startFade);
 

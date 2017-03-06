@@ -1,0 +1,44 @@
+<div>
+   <div>
+      <h1>Create a Hike:</h1>
+      <form>
+         <div class="form-section">
+            <p class="hdr-txt">PRIMARY INFO</p>
+            <div class="pre-text"><p>Title:</p></div><div><input ng-model="hike.hikename" placeholder="Hike Title"/></div><br>
+            <div class="pre-text"><p>Nickname:</p></div><div><input ng-model="hike.nickname" placeholder="Hike Nickname"/></div><br>
+            <div class="pre-text"><p>Summary:</p></div><div><textarea rows="4" cols="60" ng-model="hike.hikesummary" placeholder="Hike Summary"></textarea></div><br>
+         </div>
+         <div class="form-section">
+            <p class="hdr-txt">DETAILS</p>
+            <div class="pre-text"><p>Difficulty:</p></div><div><input ng-model="hike.difficulty" placeholder="Difficulty"/></div><br>
+            <div class="pre-text"><p>Total Miles:</p></div><div><input ng-model="hike.mileslong" placeholder="Miles"/></div><br>
+            <div class="pre-text"><p>Elevation:</p></div><div><input ng-model="hike.elevationgain" placeholder="Elevation"/></div><br>
+            <div class="pre-text"><p>Rating:</p></div>
+            <div>
+               <select ng-model="hike.rating">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                     <option value="8">8</option>
+                     <option value="9">9</option>
+                     <option value="10">10</option>
+                  </select>
+            </div><br>
+            <div class="pre-text"><p>Latitude:</p></div><div><input ng-model="hike.latitude" placeholder="Latitude"></div>
+            <div class="pre-text"><p>Longitude:</p></div><div><input ng-model="hike.longitude" placeholder="Longitude"></div><br>
+            <div class="pre-text"><p>Feature:</p></div><div><input ng-model="hike.feature" placeholder="Feature"></div>
+            <div class="pre-text"><p>Photo:</p></div><div><input ng-model="hike.photourl" placeholder="Photo URL"></div>
+         </div>
+         <div>
+            <button class="main-button" ng-click="createHike(hike)">SUBMIT HIKE</button>
+         </div>
+      </form>
+   </div>
+   <hr>
+   
+   
+</div>

@@ -1,1 +1,1 @@
-SELECT name, nickname, summary, mileslong, elevationgain, difficulty, rating FROM hikes;
+SELECT name, nickname, summary, mileslong, elevationgain, difficulty, rating, latitude, longitude, feature, hikephoto FROM hikes;

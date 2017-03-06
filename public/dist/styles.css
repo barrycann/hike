@@ -83,16 +83,16 @@ table {
   border-spacing: 0; }
 
 body {
-  font-family: 'Droid Serif', sans-serif; }
+  font-family: 'Gentium Basic', sans-serif; }
 
 h1 {
-  font: 42px/50px 'Amatic SC', sans-serif;
-  font-weight: 500;
+  font: 36px/48px 'Crete Round', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
   margin: 10px 0 20px 0; }
 
 h2 {
-  font: 30px/30px 'Crete Round', sans-serif;
-  font-weight: 800;
+  font: 24px/32px 'Oswald', sans-serif;
   letter-spacing: 1px; }
 
 h3 {
@@ -100,7 +100,7 @@ h3 {
   color: ghostwhite; }
 
 h4 {
-  font: 22px/28px 'Oswald', sans-serif; }
+  font: 25px/28px 'Crete Round', sans-serif; }
 
 h5 {
   font: 14px/18px 'Gentium Basic', serif;
@@ -112,7 +112,7 @@ h6 {
   font: 14px/18px 'Open Sans', sans-serif;
   text-transform: uppercase;
   font-weight: 300px;
-  letter-spacing: 0.15em;
+  letter-spacing: 2px;
   color: #eee; }
 
 p {
@@ -123,6 +123,9 @@ input, textarea {
   font-size: 14px;
   padding: 5px;
   margin: 5px; }
+
+a:link, a:visited, a:hover, a:active {
+  color: #eee; }
 
 @-webkit-keyframes fadeIn {
   from {
@@ -147,6 +150,14 @@ input, textarea {
   -webkit-animation: fadeIn 0.5s linear 9s 1 normal forwards;
   -moz-animation: fadeIn 0.5s linear 9s 1 normal forwards;
   animation: fadeIn 0.5s linear 9s 1 normal forwards; }
+
+.selected {
+  margin: 5px;
+  padding: 8px;
+  flex: 0 0 30%;
+  background-color: #3d1c3b;
+  border: 2px solid orange;
+  border-radius: 6px; }
 
 .box {
   margin: 7px 0 15px 0;
@@ -254,65 +265,93 @@ input, textarea {
   min-height: 1080px; }
 
 .layer-bg {
-  background-image: url("./../img/compressed/parallax1-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax1-min.png"); }
 
 .layer-1 {
-  background-image: url("./../img/compressed/parallax2-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax2-min.png"); }
 
 .layer-2 {
-  background-image: url("./../img/compressed/parallax3-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax3-min.png"); }
 
 .layer-3 {
-  background-image: url("./../img/compressed/parallax4-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax4-min.png"); }
 
 .layer-4 {
-  background-image: url("./../img/compressed/parallax5-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax5-min.png"); }
 
 .layer-5 {
-  background-image: url("./../img/compressed/parallax6-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax6-min.png"); }
 
 .layer-6 {
-  background-image: url("./../img/compressed/parallax7-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax7-min.png"); }
 
 .layer-7 {
-  background-image: url("./../img/compressed/parallax8-min.png"); }
+  background-image: url("./../img/parallax/compressed/parallax8-min.png"); }
 
 .front-content {
   background-color: #1E0E1D;
-  color: #eee;
-  height: 550px; }
+  padding-bottom: 50px;
+  color: #eee; }
   .front-content .main-info {
     position: relative;
-    width: 60%;
-    height: 410px;
+    width: 75%;
     margin: 0 auto;
-    padding: 50px;
-    border: 1px solid #BE453D;
+    padding: 25px 15px 15px 15px;
+    border: 1px dashed #BE453D;
     text-align: center; }
-    .front-content .main-info .home-info-header {
-      font: 42px/50px 'Amatic SC', sans-serif;
-      margin-bottom: 70px;
-      color: ghostwhite; }
-      .front-content .main-info .home-info-header .emphasis {
+    .front-content .main-info h1 {
+      color: #fff; }
+      .front-content .main-info h1 .emphasis {
         color: salmon; }
+    .front-content .main-info p {
+      margin-bottom: 20px; }
     .front-content .main-info .questions {
-      margin: 10px auto; }
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      margin: 20px 0; }
       .front-content .main-info .questions .q-box {
+        flex: 0 0 auto;
         display: inline-block;
         padding: 20px; }
     .front-content .main-info .rocks {
       position: absolute;
-      bottom: 10px;
-      left: 10px; }
+      bottom: 20px;
+      left: 35px; }
 
 .little-box-holder {
-  display: flex; }
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 10px 0; }
 
 .little-box {
   margin: 5px;
   padding: 8px;
   border: 1px solid #6E202C;
   flex: 0 0 30%; }
+
+.button-area {
+  margin: 25px 0; }
+
+.main-button {
+  -moz-box-shadow: inset 0px 35px 0px -14px #b54b3a;
+  -webkit-box-shadow: inset 0px 35px 0px -14px #b54b3a;
+  box-shadow: inset 0px 35px 0px -14px #b54b3a;
+  background-color: #a73f2d;
+  display: inline-block;
+  color: #ffffff;
+  font-family: "Crete Round", sans-serif;
+  font-size: 18px;
+  padding: 10px 50px;
+  text-decoration: none; }
+
+.main-button:hover {
+  background-color: #b34332; }
+
+.main-button:active {
+  position: relative;
+  top: 2px; }
 
 .login-container {
   margin-top: 20px;
@@ -352,6 +391,14 @@ input, textarea {
   .hike-card .image-area {
     flex: 0 0 auto;
     padding: 15px; }
+    .hike-card .image-area .fit-cover {
+      object-fit: cover; }
+    .hike-card .image-area img {
+      height: 150px;
+      border: 1px solid #ccc;
+      background-color: #553; }
+    .hike-card .image-area img[class] {
+      width: 150px; }
   .hike-card .primary-info {
     padding: 15px 15px 15px 0;
     flex: 1 1 auto; }
@@ -420,6 +467,15 @@ input, textarea {
     background-color: #599; }
     .hike-billboard .hike-photo-box .hike-title {
       padding: 10px 0 0 10px; }
+    .hike-billboard .hike-photo-box .hike-photos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; }
+      .hike-billboard .hike-photo-box .hike-photos img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%; }
   .hike-billboard .hike-sideinfo {
     flex: 0 0 15%;
     height: 600px;
@@ -586,24 +642,8 @@ input, textarea {
   text-transform: uppercase;
   font-size: 14px; }
 
-.main-button {
-  -moz-box-shadow: inset 0px 35px 0px -14px #b54b3a;
-  -webkit-box-shadow: inset 0px 35px 0px -14px #b54b3a;
-  box-shadow: inset 0px 35px 0px -14px #b54b3a;
-  background-color: #a73f2d;
-  display: inline-block;
-  color: #ffffff;
-  font-family: "Crete Round", sans-serif;
-  font-size: 18px;
-  padding: 10px 50px;
-  text-decoration: none; }
-
-.main-button:hover {
-  background-color: #b34332; }
-
-.main-button:active {
-  position: relative;
-  top: 2px; }
+.text-up {
+  text-transform: uppercase; }
 
 .footer {
   height: 50px;
@@ -613,5 +653,8 @@ input, textarea {
   .footer h6 {
     margin-top: 15px;
     color: #bcac9c; }
+  .footer a:link, .footer a:visited, .footer a:hover, .footer a:active {
+    color: #874;
+    text-decoration: none; }
 
 /*# sourceMappingURL=maps/styles.css.map */
