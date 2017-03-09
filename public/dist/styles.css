@@ -92,8 +92,8 @@ h1 {
   margin: 10px 0 20px 0; }
 
 h2 {
-  font: 24px/32px 'Oswald', sans-serif;
-  letter-spacing: 1px; }
+  font: 36px/48px 'Open Sans', sans-serif;
+  font-weight: 700; }
 
 h3 {
   font: 32px/38px 'Amatic SC', sans-serif;
@@ -127,6 +127,14 @@ input, textarea {
 a:link, a:visited, a:hover, a:active {
   color: #eee;
   text-decoration: none; }
+
+.brdr-dsh-lt {
+  border-top: 1px dashed #ffc8bf;
+  border-bottom: 1px dashed #ffc8bf; }
+
+.brdr-dsh-dk {
+  border-top: 1px dashed #226384;
+  border-bottom: 1px dashed #226384; }
 
 @-webkit-keyframes fadeIn {
   from {
@@ -580,12 +588,10 @@ a:link, a:visited, a:hover, a:active {
       float: right; }
 
 .profile-box {
-  background: white;
-  border-radius: 2px;
-  margin: 0 auto;
   width: 80%; }
   .profile-box img {
-    width: 150px; }
+    width: 200px;
+    border-radius: 2px; }
 
 .text1 {
   font-family: '', sans-serif; }
@@ -638,8 +644,6 @@ a:link, a:visited, a:hover, a:active {
   margin-top: 33px;
   margin-bottom: 10px;
   padding: 10px 20px 3px 20px;
-  border-top: 1px dashed #ffc8bf;
-  border-bottom: 1px dashed #ffc8bf;
   text-align: center; }
   .quote-box .quote {
     font-size: 18px;

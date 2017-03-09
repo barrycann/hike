@@ -12,6 +12,13 @@ angular.module("hikeApp")
    $scope.getHikeReviews = function(){
       hikeDetailsService.getHikeReviews($scope.hikeDetail.hikeid)
       .then(function(response){
+         for(var i=0;i<response.length; i++){
+            var time = response[i].reviewtime;
+            time = moment(time, "YYYY-M-D hh:mm")._d.toString();
+            var bt = time.substring(0, 21);
+            response[i].reviewtime = bt;
+         }
+
          $scope.reviews = response;
       });
    }

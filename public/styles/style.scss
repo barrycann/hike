@@ -19,8 +19,8 @@ h1 {
 }
 
 h2 {
-   font: 24px/32px 'Oswald', sans-serif;
-   letter-spacing: 1px;
+   font: 36px/48px 'Open Sans', sans-serif;
+   font-weight: 700;
 }
 
 h3 {
@@ -62,6 +62,20 @@ a:link, a:visited, a:hover, a:active {
    color: #eee;
    text-decoration: none;
 }
+
+//=== BORDERS =========================================
+.brdr-dsh-lt {
+   border-top: 1px dashed #ffc8bf;
+   border-bottom: 1px dashed #ffc8bf;
+}  
+
+.brdr-dsh-dk {
+   border-top: 1px dashed #226384;
+   border-bottom: 1px dashed #226384;
+}
+  
+
+
 
 //=== ANIMATION =======================================
 
@@ -621,12 +635,10 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .profile-box {
-   background: white;
-   border-radius: 2px;
-   margin: 0 auto;
    width: 80%;
    img{
-      width: 150px;
+      width: 200px;
+      border-radius: 2px;
    }
 }
 
@@ -692,8 +704,6 @@ a:link, a:visited, a:hover, a:active {
    margin-top: 33px;
    margin-bottom: 10px;
    padding: 10px 20px 3px 20px;
-   border-top: 1px dashed #ffc8bf;
-   border-bottom: 1px dashed #ffc8bf;
    text-align: center;
    .quote {
       font-size: 18px;

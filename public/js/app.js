@@ -1,4 +1,9 @@
 angular.module('hikeApp', ['ui.router', 'ngAnimate'])
+.run(function($rootScope, $window){
+   $rootScope.$on('$stateChangeSuccess', function(){
+      $window.scrollTo(0, 0);
+   })
+})
 .config(function($urlRouterProvider, $stateProvider){
    
    $urlRouterProvider.otherwise('/');

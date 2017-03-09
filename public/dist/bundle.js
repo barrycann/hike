@@ -1,6 +1,10 @@
 'use strict';
 
-angular.module('hikeApp', ['ui.router', 'ngAnimate']).config(function ($urlRouterProvider, $stateProvider) {
+angular.module('hikeApp', ['ui.router', 'ngAnimate']).run(function ($rootScope, $window) {
+   $rootScope.$on('$stateChangeSuccess', function () {
+      $window.scrollTo(0, 0);
+   });
+}).config(function ($urlRouterProvider, $stateProvider) {
 
    $urlRouterProvider.otherwise('/');
    $stateProvider.state('home', {
@@ -74,6 +78,13 @@ angular.module("hikeApp").controller('hikeDetailsCtrl', function ($scope, hikeDe
 
    $scope.getHikeReviews = function () {
       hikeDetailsService.getHikeReviews($scope.hikeDetail.hikeid).then(function (response) {
+         for (var i = 0; i < response.length; i++) {
+            var time = response[i].reviewtime;
+            time = moment(time, "YYYY-M-D hh:mm")._d.toString();
+            var bt = time.substring(0, 21);
+            response[i].reviewtime = bt;
+         }
+
          $scope.reviews = response;
       });
    };
