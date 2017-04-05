@@ -747,15 +747,16 @@ a:link, a:visited, a:hover, a:active {
    width: 100%;
    height: 100%;
    background-color: rgba(0,0,0, 0.7);
-   z-index: 10;
+   z-index: 99;
    .success-box, .fail-box{
-      position: fixed;
-      top: -40%;
-      left: 30%;
-      width: 40%;
-      height: 50%;
-      margin: 40% auto;
-      z-index: 20;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      z-index: 100;
       text-align: center;
       border: 1px dashed #BE453D;
       color: #eee;

@@ -59,14 +59,23 @@ angular.module('hikeApp')
 
    $scope.getPerfectHike = function(len1, len2, feat, lat, lon){
       if(len1 === undefined || feat === undefined){
-         alert("You must select a hike length and a feature!");
-      } else if(!$scope.user){
-        alert("You must be logged in to use this feature!");
+         alert("Please select both a hike length and a feature.");
       } else {
          homeService.getPerfectHike(len1, len2, feat, lat, lon)
          .then(function(response){
+           if(response.length < 1){
+             alert("There are no hikes with those specifications. Change your selection and try again.");
+           } else {
             $scope.foundHike = response[0];
+           }
          });
       }
    }
+
+    $scope.modalShown = false;
+
+    $scope.toggleModal = function() {
+      $scope.modalShown = !$scope.modalShown;
+    };
+
 });
