@@ -27,16 +27,24 @@
       <div class="full-width-box" expand-box>
         <h5>Edit Profile Info</h5>
       </div>
-      <div class="update-content expandable">
-        <p class="soft-light">Username:&nbsp;&nbsp;<input type="text" ng-model="user.username"></p>
-        
-        <p class="soft-light">Email:&nbsp;&emsp;&emsp;<input type="text" ng-model="user.useremail"></p>
-        
-        <p class="soft-light">Bio <textarea rows="4" ng-model="user.userbio"></textarea></p>
-        
-        <button class="main-button" ng-click="updateUser(user)">UPDATE</button>
+      <div class="expandable">
+        <div class="update-fields">
+          <div class="mid-width">
+            <p class="soft-light">Username:</p>
+            <p><input type="text" ng-model="user.username"></p>
+            <br>
+            <p class="soft-light">Email:</p>
+            <p><input type="text" ng-model="user.useremail"></p>
+          </div>
+          <div class="mid-width">
+            <p class="soft-light">Bio:</p>
+            <p><textarea ng-model="user.userbio"></textarea></p>
+          </div>
+        </div>
+        <div class="update-button">
+          <button class="main-button" ng-click="updateUser(user)">UPDATE</button>
+        </div>
       </div>
-        
     </div>
     <div class="full-width-box" ng-if="user.isadmin">
       <h4 class="dark-text centered">Admin Controls</h4>

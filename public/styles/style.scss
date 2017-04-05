@@ -837,6 +837,32 @@ a:link, a:visited, a:hover, a:active {
     background-color: #777;
     color: #fff;
   }
+  .update-fields {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    input {
+      width: 80%;
+      padding: 5px; 
+      background-color: #eee;
+      border: none;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+    }
+    textarea {
+      width: 80%;
+      min-width: 350px;
+      min-height: 96px;
+      padding: 5px; 
+      background-color: #eee;
+      border: none;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+    }
+    .mid-width {
+      flex: 1 1 auto;
+    }
+  }
 }
 
 .soft-light {
