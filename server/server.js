@@ -25,8 +25,7 @@ app.use(session({
 
 //=== Database ==============================================
 const massiveInstance = massive.connectSync({
-  connectionString:connectionString,
-  scripts: 'server/db'
+  connectionString:connectionString
 });
 app.set('db', massiveInstance);
 const db = app.get('db');
