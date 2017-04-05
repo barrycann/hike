@@ -28,6 +28,7 @@ angular.module('hikeApp')
             var distance = calculateDistance(hikeLat, hikeLon, lat, lon);
             theHikes[i].distance = Math.round(distance * 0.000621371);
          }
+         console.log(theHikes);
          return theHikes;
       })
    }

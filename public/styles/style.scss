@@ -2,8 +2,8 @@
 
 //==== COLORS ================================================
 $menuColorPurple: #1E0E1D;
-$hike-stat: #ccc;
-$hike-stat-desc: #ccc;
+$hike-stat: #ddd;
+$hike-stat-desc: #bbb;
 $heroHeight: 1080px;
 $layer: 10;
 
@@ -479,11 +479,11 @@ a:link, a:visited, a:hover, a:active {
    height: 600px;
    margin-top: 15px;
    border: 1px solid #eee;
+   border-radius: 3px;
 
    .hike-photo-box {
-      flex: 0 0 85%;
+      flex: 1 1 80%;
       height: 600px;
-      background-color: #599;
       .fit-cover {
          object-fit: cover;
       }
@@ -501,7 +501,7 @@ a:link, a:visited, a:hover, a:active {
       }
    }
    .hike-sideinfo {
-      flex: 0 0 15%;
+      flex: 1 1 20%;
       height: 600px;
       background: rgba(0,0,0, 0.5);
       .info-block {
@@ -509,6 +509,10 @@ a:link, a:visited, a:hover, a:active {
          text-align: center;
          border: 1px solid #776;
          padding: 7px 5px 3px 5px;
+         .small-caps {
+           font-size: 14px;
+           color: $hike-stat-desc;
+         }
          h1 {
             color: $hike-stat;
          }
@@ -530,14 +534,14 @@ a:link, a:visited, a:hover, a:active {
    
    .weather {
       flex: 0 0 300px;
-      height: 300px;
+      padding: 20px;
       background: #eee;
       font-family: 'Lato', sans-serif;
       text-align: center;
       text-transform: uppercase;
       border-radius: 2px;
       .weather-today {
-         height: 150px
+         height: 120px;
       }
 
       .high-temp {
@@ -770,11 +774,18 @@ a:link, a:visited, a:hover, a:active {
       }
    }
 }
+
+.hike-title {
+  font-family: 'Crete Round', sans-serif;
+  font-weight: 400;
+  color: #FFFFE5;
+}
+
 .bigger-text{
    font: 44px/48px 'Crete Round', sans-serif;
    font-weight: 400;
    letter-spacing: 1px;
-   margin: 10px 0 10px 0;
+   //margin: 10px 0 10px 0;
 }
 
 .light-text {

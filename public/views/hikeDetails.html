@@ -1,7 +1,7 @@
 <div class="main-container hike-bg static-bg">
    <div>
-      <h1 class="bigger-text light-text">{{hikeDetail.name}}</h1>
-      <h4 class="light-text">&quot{{hikeDetail.nickname}}&quot</h4>
+      <h2 class="hike-title">{{hikeDetail.name}}</h2>
+      <h6 class="light-text">&quot{{hikeDetail.nickname}}&quot</h6>
    </div>
    <div class="hike-billboard">
       <div class="hike-photo-box">
@@ -14,29 +14,16 @@
             {{hikeDetail.diffText}}
          </div>
          <div class="info-block">
-            <h1>{{hikeDetail.mileslong}}</h1>
-            <p>HIKE LENGTH (MI)</p>
+            <h1>{{hikeDetail.mileslong}}<span class="small-caps">MI</span></h1>
+            <p>LENGTH</p>
          </div>
          <div class="info-block">
-            <h1>{{hikeDetail.elevationgain}}</h1>
-            <p>ELEVATION GAIN (FT)</p>
+            <h1>{{hikeDetail.elevationgain}}<span class="small-caps">FT</span></h1>
+            <p>ELEVATION GAIN</p>
          </div>
          <div class="info-block">
             <p>USER RATING</p>
             <img ng-src="{{hikeDetail.ratingurl}}"/>
-         </div>
-         <div class="info-block">
-            <p>MAP GOES HERE</p>
-         </div>
-         <div class="info-block">
-            <p>SEND TO PHONE</p>
-         </div>
-      </div>
-   </div>
-   <div class="hike-billboard">
-      <div class="hike-photo-box">
-         <div class="hike-photos">
-           
          </div>
       </div>
    </div>

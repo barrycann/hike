@@ -60,6 +60,8 @@ angular.module('hikeApp')
    $scope.getPerfectHike = function(len1, len2, feat, lat, lon){
       if(len1 === undefined || feat === undefined){
          alert("You must select a hike length and a feature!");
+      } else if(!$scope.user){
+        alert("You must be logged in to use this feature!");
       } else {
          homeService.getPerfectHike(len1, len2, feat, lat, lon)
          .then(function(response){
