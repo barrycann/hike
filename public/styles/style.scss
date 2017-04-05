@@ -663,15 +663,15 @@ a:link, a:visited, a:hover, a:active {
       margin: 10px;
       padding: 10px;
       flex: 1 1 30%;
-      height: 130px;
       border: 1px dashed #665;
-      .flex-holder {
-         display: flex;
-         flex-flow: row nowrap;
-         justify-content: space-between;
-         .flex-edge {
-            flex: 0 0 auto;
-         }
+      .select-box {
+        margin: 10px auto;
+        select {
+          width: 100%;
+          padding: 7px 12px;
+          border-radius: 5px;
+          font: 16px/20px 'Gentium Basic', serif;
+        }
       }
    }
    .review-image-box{
