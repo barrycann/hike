@@ -21,9 +21,8 @@ module.exports = {
             console.log('User update error', err);
             return res.status(401).send(err);
          }
-
-         console.log('user: ', user);
          req.session.passport.user = user;
+         console.log('user: ', user);
          res.status(200).send(user);
       });
    }

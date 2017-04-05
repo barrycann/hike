@@ -1,2 +1,8 @@
+# Dependency directory
 node_modules
+
+# Config files
 config.js
+
+# Gulp Output
+dist

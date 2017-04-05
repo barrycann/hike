@@ -634,14 +634,6 @@ a:link, a:visited, a:hover, a:active {
    }
 }
 
-.profile-box {
-   width: 80%;
-   img{
-      width: 200px;
-      border-radius: 2px;
-   }
-}
-
 .text1 {
    font-family: '', sans-serif;
 }
@@ -692,7 +684,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .full-width-box {
-   width: 100%;
    margin: 10px 0;
    padding: 15px;
    border-radius: 3px;
@@ -803,5 +794,57 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .extra-padding{
-      padding: 5px 20px;
+   padding: 5px 20px;
+}
+
+.profile-content {
+  background-color: rgba(2,1,2, 0.5);
+  padding: 15px;
+  border-radius: 3px;
+  .title {
+    text-align: center;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid #333;
+  }
+  .main-content {
+    margin-top: 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    .profile-image {
+      flex: 0 0 30%;
+      img {
+        width: 100%;
+        border-radius: 2px;
+      }
+    }
+    .profile-info-headers {
+      flex: 1 1 12%;
+      padding: 15px;
+      color: #bbb;
+    }
+    .profile-info {
+      flex: 1 1 58%;
+      padding: 15px 15px 15px 0;
+    }
+  }
+  .update-button {
+    margin: 10px auto;
+    text-align: center;
+  }
+  .full-width-box {
+    text-align: center;
+    background-color: #777;
+    color: #fff;
+  }
+}
+
+.soft-light {
+  color: #bbb;
+}
+
+.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }

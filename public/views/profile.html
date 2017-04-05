@@ -5,16 +5,41 @@
          <p class="source">Henry David Thoreau</p>
       </div>
    </div>
-   <h1 class="bigger-text light-text">Welcome, {{user.username}}</h1>
-   <div class="profile-box">
-      <img ng-src="{{user.userimage}}"/><br>
-   </div>
-   <input type="text" ng-model="user.username">
-   <input type="text" ng-model="user.useremail">
-   <textarea rows="4" cols="40" ng-model="user.userbio"></textarea>
-   <button type="button" ng-click="updateUser(user)">UPDATE</button>
-   <div class="full-width-box" ng-if="user.isadmin">
+   <div class="profile-content">
+     <div class="title">
+        <h4 class="light-text">User Profile</h4>
+     </div>
+     <div class="main-content">
+       <div class="profile-image">
+        <img ng-src="{{user.userimage}}"/>
+       </div>
+       <div class="profile-info-headers">
+        <p>Username:</p>
+        <p>Email:</p>
+        <p>Bio:</p>
+       </div>
+       <div class="profile-info">
+        <p class="light-text">{{user.username}}</p>
+        <p class="light-text">{{user.useremail}}</p>
+        <p class="light-text">{{user.userbio}}</p>
+       </div>
+     </div>
+      <div class="full-width-box" expand-box>
+        <h5>Edit Profile Info</h5>
+      </div>
+      <div class="update-content expandable">
+        <p class="soft-light">Username:&nbsp;&nbsp;<input type="text" ng-model="user.username"></p>
+        
+        <p class="soft-light">Email:&nbsp;&emsp;&emsp;<input type="text" ng-model="user.useremail"></p>
+        
+        <p class="soft-light">Bio <textarea rows="4" ng-model="user.userbio"></textarea></p>
+        
+        <button class="main-button" ng-click="updateUser(user)">UPDATE</button>
+      </div>
+        
+    </div>
+    <div class="full-width-box" ng-if="user.isadmin">
       <h4 class="dark-text centered">Admin Controls</h4>
       <create-hike></create-hike>
-   </div>
+    </div>
 </div>

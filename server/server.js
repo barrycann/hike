@@ -3,7 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       session = require('express-session'),
       massive = require('massive'),
-      config = require('../config');
+      config = require('./../config');
 
 const dbPassword = config.dbPassword;
 const port = config.port;
@@ -13,7 +13,7 @@ const connectionString = `postgres://postgres:${dbPassword}@localhost/hikehike`;
 //=== Initialize App ========================================
 const app = module.exports = express();
 
-app.use(express.static(__dirname + './../public'));
+app.use(express.static(__dirname + './../dist'));
 app.use(bodyParser.json());
 
 app.use(session({
@@ -24,7 +24,10 @@ app.use(session({
 
 
 //=== Database ==============================================
-const massiveInstance = massive.connectSync({connectionString:connectionString});
+const massiveInstance = massive.connectSync({
+  connectionString:connectionString,
+  scripts: 'server/db'
+});
 app.set('db', massiveInstance);
 const db = app.get('db');
 
@@ -77,7 +80,6 @@ app.get('/api/reviews/:hikeid', reviewCtrl.getReviewsByHike);
 app.get('/api/me', userCtrl.me);
 app.put('/api/user/current', isAuthed, userCtrl.updateCurrent);
 app.get('/api/logout', function(req, res) {
-  //req.logout();
   req.session.destroy(function(err){
     return res.status(200).send('logged out');
   })
