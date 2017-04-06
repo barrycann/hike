@@ -26,7 +26,6 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
             user: function(authService, $state){
                return authService.getCurrentUser()
                .then(function(response){
-                  console.log('response: data', response.data);
                   if(!response.data){
                      $state.go('home');
                   } else {
@@ -34,7 +33,7 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
                   }
                })
                .catch(function(err){
-                  console.log("Error on profile resolve: ", err)
+                  console.error("Error on profile resolve: ", err)
                   $state.go('home');
                });
             }

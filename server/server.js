@@ -24,11 +24,11 @@ app.use(session({
 
 
 //=== Database ==============================================
-const massiveInstance = massive.connectSync({
+var massiveInstance = massive.connectSync({
   connectionString:connectionString
 });
 app.set('db', massiveInstance);
-const db = app.get('db');
+var db = app.get('db');
 
 
 //=== Session and Passport ==================================
@@ -77,7 +77,7 @@ app.get('/api/reviews/:hikeid', reviewCtrl.getReviewsByHike);
 
 //=== User Endpoints ========================================
 app.get('/api/me', userCtrl.me);
-app.put('/api/user/current', isAuthed, userCtrl.updateCurrent);
+app.put('/api/user/:userid', isAuthed, userCtrl.updateCurrentUser);
 app.get('/api/logout', function(req, res) {
   req.session.destroy(function(err){
     return res.status(200).send('logged out');

@@ -5,9 +5,12 @@ angular.module('hikeApp')
 
    $scope.updateUser = function(user){
       authService.editUser(user)
-      .then(function(reponse){
-         $scope.user = response.data;
-      });
+      .then(function(response){
+         $scope.user = response;
+      })
+      .catch(function(err){
+        console.log(err);
+      })
    }
    
 });

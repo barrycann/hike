@@ -16,9 +16,10 @@ angular.module('hikeApp')
    };
 
    this.editUser = function(user){
-      return $http.put('/api/user/current', user)
+      return $http.put(`/api/user/${user.userid}`, user)
       .then(function(response){
-         return response;
+        var parsed = response.data[0];
+         return parsed;
       });
    }
 
