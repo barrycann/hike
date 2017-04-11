@@ -18,6 +18,11 @@ angular.module('hikeApp', ['ui.router', 'ngAnimate'])
          templateUrl: './views/explore.html',
          controller: 'exploreCtrl'
       })
+      .state('prepare', {
+            url: '/prepare',
+            templateUrl: './views/prepare.html',
+            controller: 'prepareCtrl'
+      })
       .state('profile', {
          url: '/profile',
          templateUrl: './views/profile.html',
