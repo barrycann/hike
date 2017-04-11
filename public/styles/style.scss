@@ -405,6 +405,9 @@ a:link, a:visited, a:hover, a:active {
       h2{
          padding-bottom: 2px;
       }
+      .summary-paragraph {
+        margin: 5px 0 0 0;
+      }
       .mid-caps{
          flex: 0 0 auto;
          font-size: 14px;
@@ -412,26 +415,29 @@ a:link, a:visited, a:hover, a:active {
          color: #fff;
       }
       .flex-holder{
-         margin-top: 10px;
+         display: flex;
+         flex-flow: row wrap;
       }
       .diff {
-         margin-right: 10px;
+         margin: 10px 10px 0 0;
          border-radius: 3px;
+         min-width: 90px;
+         text-align: center;
          padding: 3px 5px 2px 5px;
          background-color: #111;
       }
       .rating {
-         margin-left: 10px;
+        margin: 10px 0 0 0;
          background-color: #dcb;
          border-radius: 3px;
          flex: 0 0 auto;
-         padding: 3px 5px 2px 5px;
+         padding: 7px 5px 2px 5px;
       }
       .info-block{
+        margin: 10px 10px 0 0;
          border: 1px solid #dcb;
          border-radius: 3px;
-         margin: 0 10px;
-         padding: 0 5px;
+         padding: 2px 5px 1px 5px;
       }
    }
 

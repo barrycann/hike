@@ -2,9 +2,10 @@
   "name": "hike",
   "version": "1.0.0",
   "description": "A full-featured hiking app for the Wasatch Front",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "gulp": "gulp"
 
   },
   "repository": {
@@ -36,6 +37,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.1",
     "massive": "^2.6.0",
+    "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-auth0": "^0.6.0"
   }

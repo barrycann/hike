@@ -3,18 +3,16 @@
       <img class="fit-cover"ng-src="{{hike.hikephoto}}"/>
    </div>
    <div class="primary-info">
-      <div>
-         <h4>{{hike.name}}</h4>
-         <p class="mid-caps">&quot{{hike.nickname}}&quot</p>
-         <div class="flex-holder">
-            <div class="mid-caps diff" difficulty-color>{{hike.diffText}}</div>
-            <div class="info-block"><h4>{{hike.mileslong}} <span class="mid-caps">mi</span></h4></div>
-            <div class="info-block"><h4>{{hike.elevationgain}} <span class="mid-caps">ft</span></h4></div>
-            <div class="rating"><img ng-src='{{hike.ratingurl}}'/></div>
-         </div>
+      <h4>{{hike.name}}</h4>
+      <p class="mid-caps">&quot{{hike.nickname}}&quot</p>
+      <div class="flex-holder">
+        <div class="mid-caps diff" difficulty-color>{{hike.diffText}}</div>
+        <div class="info-block"><p class="mid-caps">{{hike.mileslong}} mi</p></div>
+        <div class="info-block"><p class="mid-caps">{{hike.elevationgain}} ft</p></div>
+        <div class="rating"><img ng-src='{{hike.ratingurl}}'/></div>
       </div>
       <div>
-         <p>{{hike.summary}}</p>
+         <p class="summary-paragraph">{{hike.summary}}</p>
       </div>
    </div>
 </div>
