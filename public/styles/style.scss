@@ -1,9 +1,5 @@
-//==== COLORS ================================================
-$menuColorPurple: #1E0E1D;
-$hike-stat: #ddd;
-$hike-stat-desc: #bbb;
-$heroHeight: 1080px;
-$layer: 10;
+// Imports ----------------------------------
+@import "variables";
 
 body {
    font-family: 'Gentium Basic', sans-serif;

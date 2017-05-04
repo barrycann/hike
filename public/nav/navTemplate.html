@@ -13,5 +13,13 @@
       </ul>
    </nav>
    <ham-dir></ham-dir>
-   <mobile-menu></mobile-menu>
+</div>
+<div class="mobile-menu">
+  <ul>
+      <li ui-sref="explore"><h6>Explore</h6></li>
+      <li ui-sref="prepare"><h6>Prepare</h6></li>
+      <li ng-if="user" ui-sref="profile"><h6>Profile</h6></li>
+      <li ng-if="!user"><h6><a href="/auth">Login</a></h6></li>
+      <li ng-if="user" ng-click="logout()"><h6>Logout</h6></li>
+  </ul>
 </div>

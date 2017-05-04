@@ -10,8 +10,8 @@ angular.module('hikeApp')
               </nav>`,
     link: function(scope, elem, attrs){
       $('.ham-menu').on('click', function(){
-        console.log("cliked")
         $('.ham-menu').toggleClass('open');
+        $('.mobile-menu').toggleClass('menu-extend');
       });
     }
   }
