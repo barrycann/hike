@@ -4,10 +4,13 @@
       <h6 class="light-text">&quot{{hikeDetail.nickname}}&quot</h6>
    </div>
    <div class="hike-billboard">
-      <div class="hike-photo-box">
+      <div class="hike-photo-box" ng-show="showMap === false">
          <div class="hike-photos">
             <img class="fit-cover" ng-src="{{hikeDetail.hikephoto}}"/>
          </div>
+      </div>
+      <div class="google-map" ng-show="showMap === true">
+        <!--<google-map name="'hike-map'" zoom="9"></google-map>-->
       </div>
       <div class="hike-sideinfo">
          <div class="info-block mid-caps bg-white diff">
@@ -24,6 +27,9 @@
          <div class="info-block">
             <p>USER RATING</p>
             <img ng-src="{{hikeDetail.ratingurl}}"/>
+         </div>
+         <div class="info-block" ng-click="toggleMap()">
+            <p>SHOW MAP</p>
          </div>
       </div>
    </div>
@@ -45,3 +51,4 @@
       <review-dir></review-dir>
    </div>
 </div>
+

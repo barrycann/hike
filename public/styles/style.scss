@@ -1,5 +1,3 @@
-@import "reset.scss";
-
 //==== COLORS ================================================
 $menuColorPurple: #1E0E1D;
 $hike-stat: #ddd;
@@ -73,9 +71,6 @@ a:link, a:visited, a:hover, a:active {
    border-top: 1px dashed #226384;
    border-bottom: 1px dashed #226384;
 }
-  
-
-
 
 //=== ANIMATION =======================================
 
@@ -133,45 +128,7 @@ a:link, a:visited, a:hover, a:active {
    }
 }
 
-.nav-bar {
-   position: fixed;
-   top: 0px;
-   width: 100%;
-   height: 80px;
-   background-color: #212;
-   z-index: 1;
-   transition: background-color 0.6s;
 
-   .left-nav{
-      position: absolute;
-      left: 30px;
-      top: 25px;
-      img{
-         height: 30px;
-      }
-   }
-}
-
-.main-nav {
-   position: absolute;
-   right: 30px;
-   font-family: 'Patua One', sans-serif;
-   ul {
-      list-style: none;
-      li {
-         display: inline-block;
-         height: 80px;
-         line-height: 81px;
-         padding: 0 13px;
-         color: white;
-         img {
-            height: 38px;
-            border-radius: 19px;
-            vertical-align: middle;
-         }
-      }
-   }
-}
 
 .main-container {
    margin: 80px 0 0 0;
@@ -481,113 +438,7 @@ a:link, a:visited, a:hover, a:active {
    }
 }
 
-.hike-billboard {
-   display: flex;
-   flex-flow: row nowrap;
-   align-items: flex-start;
-   width: 100%;
-   height: 600px;
-   margin-top: 15px;
-   border: 1px solid #eee;
-   border-radius: 3px;
 
-   .hike-photo-box {
-      flex: 1 1 80%;
-      height: 600px;
-      .fit-cover {
-         object-fit: cover;
-      }
-      .hike-photos {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         overflow: hidden;
-         img {
-            height: 600px
-         }
-         img[class] {
-            width: 100%;
-         }
-      }
-   }
-   .hike-sideinfo {
-      flex: 1 1 20%;
-      height: 600px;
-      background: rgba(0,0,0, 0.5);
-      .info-block {
-         margin: 10px;
-         text-align: center;
-         border: 1px solid #776;
-         padding: 7px 5px 3px 5px;
-         .small-caps {
-           font-size: 14px;
-           color: $hike-stat-desc;
-         }
-         h1 {
-            color: $hike-stat;
-         }
-         p {
-            color: $hike-stat-desc;
-         }
-      }  
-   }
-}
-
-.hike-lower-info {
-   margin-top: 30px;
-   display: flex;
-   flex-flow: row nowrap;
-   justify-content: space-between;
-   width: 100%;
-   height: 300px;
-   border-radius: 3px;
-   
-   .weather {
-      flex: 0 0 300px;
-      padding: 20px;
-      background: #eee;
-      font-family: 'Lato', sans-serif;
-      text-align: center;
-      text-transform: uppercase;
-      border-radius: 2px;
-      .weather-today {
-         height: 120px;
-      }
-
-      .high-temp {
-         color: #755;
-      }
-      .low-temp {
-         color: #557;
-      }
-
-      .weather-forecast {
-         text-align: center;
-         height: 120px;
-         .day-name {
-            color: #333;
-         }
-         .forecast-day {
-            display: inline-block;
-            width: 90px;
-         }
-      }
-   }
-
-   .summary {
-      flex: 1 1 auto;
-      padding: 0 30px;
-      height: 300px;
-      background: rgba(255, 255, 255, 0.3);
-      h4 {
-         margin-top: 15px;
-      }
-      p {
-         padding-top: 10px;
-         text-align: justify;
-      }
-   }
-}
 
 .reviews {
    margin-top: 30px;

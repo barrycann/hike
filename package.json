@@ -6,7 +6,6 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "gulp": "gulp"
-
   },
   "repository": {
     "type": "git",
@@ -31,12 +30,14 @@
   },
   "dependencies": {
     "angular-animate": "^1.6.2",
+    "angular-google-maps": "^2.4.1",
     "aws-sdk": "^2.22.0",
     "body-parser": "^1.17.1",
     "cors": "^2.8.1",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
     "massive": "^2.6.0",
+    "ngmap": "^1.18.4",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-auth0": "^0.6.0"

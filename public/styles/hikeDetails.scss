@@ -1,0 +1,102 @@
+$hike-stat: #ddd;
+$hike-stat-desc: #bbb;
+
+.hike-billboard {
+  width: 100%;
+  height: 600px;
+  margin-top: 15px;
+  .hike-photo-box {
+    display: block;
+    float: left;
+    width: 80%;
+    height: 100%;
+    .hike-photos {
+      overflow: hidden;
+      img {
+        height: 100%;
+      }
+    }
+  }
+  .google-map {
+    display: block;
+    float: left;
+    width: 80%;
+    height: 100%;
+  }
+  .hike-sideinfo {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.5);
+    .info-block {
+      box-sizing: border-box;
+      margin: 10px;
+      text-align: center;
+      border: 1px solid #776;
+      padding: 7px 5px 3px 5px;
+      .small-caps {
+        font-size: 14px;
+        color: $hike-stat-desc;
+      }
+      h1 {
+        color: $hike-stat;
+      }
+      p {
+        color: $hike-stat-desc;
+      }
+    }
+  }
+}
+
+.hike-lower-info {
+  margin-top: 30px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px;
+  border-radius: 3px;
+  .weather {
+    flex: 0 0 300px;
+    padding: 20px;
+    background: #eee;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 2px;
+    .weather-today {
+      height: 120px;
+    }
+    .high-temp {
+      color: #755;
+    }
+    .low-temp {
+      color: #557;
+    }
+    .weather-forecast {
+      text-align: center;
+      height: 120px;
+      .day-name {
+        color: #333;
+      }
+      .forecast-day {
+        display: inline-block;
+        width: 90px;
+      }
+    }
+  }
+  .summary {
+    flex: 1 1 auto;
+    padding: 0 30px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.3);
+    h4 {
+      margin-top: 15px;
+    }
+    p {
+      padding-top: 10px;
+      text-align: justify;
+    }
+  }
+}

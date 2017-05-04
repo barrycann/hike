@@ -9,8 +9,8 @@ var babel = require('gulp-babel');
 const cachebust = new CacheBuster();
 
 const paths = {
-  app_JS: ['public/js/**/*.js'],
-  app_CSS: ['public/styles**/*.*css'],
+  app_JS: ['public/**/*.js'],
+  app_CSS: ['public/**/*.scss'],
   app_HTML: ['public/**/*.html'],
   images: ['public/img/**/*.*']
 };

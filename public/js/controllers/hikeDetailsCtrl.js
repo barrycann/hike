@@ -1,42 +1,49 @@
 angular.module("hikeApp")
-.controller('hikeDetailsCtrl', function($scope, hikeDetailsService){
+  .controller('hikeDetailsCtrl', function ($scope, hikeDetailsService) {
 
-   $scope.getHikeDetails = function(){
+    $scope.toggleMap = function () {
+      return $scope.showMap === true ? $scope.showMap = false : $scope.showMap = true;
+    }
+
+    $scope.getHikeDetails = function () {
       hikeDetailsService.getHikeDetails()
-      .then(function(response){
-         $scope.hikeDetail = response;
-         $scope.getHikeReviews();
-      })
-   }
+        .then(function (response) {
+          $scope.hikeDetail = response;
+          $scope.lat = Number(response.latitude);
+          $scope.lon = Number(response.longitude);
+          $scope.getHikeReviews();
+        })
+    }
 
-   $scope.getHikeReviews = function(){
+    $scope.getHikeReviews = function () {
       hikeDetailsService.getHikeReviews($scope.hikeDetail.hikeid)
-      .then(function(response){
-         for(var i=0;i<response.length; i++){
+        .then(function (response) {
+          for (var i = 0; i < response.length; i++) {
             var time = response[i].reviewtime;
             time = moment(time, "YYYY-M-D hh:mm")._d.toString();
             var bt = time.substring(0, 21);
             response[i].reviewtime = bt;
-         }
+          }
 
-         $scope.reviews = response;
-      });
-   }
+          $scope.reviews = response;
+        });
+    }
 
-   $scope.getHikeDetails();
+    $scope.getHikeDetails();
 
-   $scope.createReview = function(review){
+    $scope.createReview = function (review) {
       var currentTime = new Date();
       review.reviewtime = currentTime;
       review.hikeid = $scope.hikeDetail.hikeid;
       review.userid = $scope.user.userid;
       hikeDetailsService.createReview(review)
-      .then(function(response){
-         if(response){
+        .then(function (response) {
+          if (response) {
             alert("Review submitted.")
-         } else {
+          } else {
             alert("No review submitted");
-         }
-      });
-   }
-});
+          }
+        });
+    }
+
+  });
